@@ -45,7 +45,8 @@
 3. Does not meet: evidence that the feature is absent.
 4. Unknown: no direct evidence. An inference is not evidence.
 5. #26: Meets = ISO 27001 and SOC 2 confirmed on an official vendor page. NIS2-specific supply-chain documentation was not found on public pages for any vendor; only ServiceNow names a NIS2 white paper and FAQ, behind an NDA portal. NIS2 is therefore an open question for every vendor and does not change the verdict.
-6. #29: Meets = an official statement that requesters / end users are free or unlimited. Partial = confirmed that a requester-side role (for example approvers) needs a paid seat. Unknown = no explicit statement.
+6. Generally available only: a feature in beta, early access or "on request" gets Partial, not Meets (applied to the 43 non-K.O. requirements on 2026-11-18).
+7. #29: Meets = an official statement that requesters / end users are free or unlimited. Partial = confirmed that a requester-side role (for example approvers) needs a paid seat. Unknown = no explicit statement.
 
 ## Observations
 

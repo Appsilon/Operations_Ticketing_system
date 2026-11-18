@@ -363,6 +363,7 @@ def main(req_path, out_path):
         ("Verdict: Partial", "Some parts have evidence; other parts are missing, limited, not documented or not verified."),
         ("Verdict: Does not meet", "Evidence that the feature is absent."),
         ("Verdict: Unknown", "No direct evidence found. An inference is not evidence. Unknown does not mean the feature is missing."),
+        ("Generally available only", "A feature in beta, early access or available on request gets Partial, not Meets."),
         ("Integrations", "Meets = native or official integration (by the vendor or the other product's maker). Partial = only via a third-party app, Zapier/Make or a custom build on the API."),
         ("#21 Claude integration", "Meets = vendor-provided MCP server or a documented native way to connect an external AI agent. Partial = public REST API only."),
         ("#26 rule", "Meets = ISO 27001 and SOC 2 confirmed. NIS2-specific documents were not found publicly for any vendor (ServiceNow names them behind an NDA portal)."),
