@@ -65,6 +65,8 @@ Narzędzia wymienione w rozmowach (lista otwarta, można dodawać inne):
 12. Każde narzędzie dostaje kartę: wynik K.O., ile wymagań spełnia i dla kogo (Must/Nice per obszar), cena, trial, źródła.
 13. Język wyników (pliki w `analysis/`): angielski. `CLAUDE.md` i `CHANGELOG.md` po polsku.
 14. Nie wykluczamy żadnego narzędzia (decyzja użytkownika 2026-11-18). Wszystkie sprawdzone narzędzia są w zestawieniu, także te z „Does not meet”.
+15. Krok 2 (decyzja użytkownika 2026-11-18): wszystkie 9 narzędzi oceniamy na wszystkie 59 wymagań (43 pozostałe → `analysis/full_screen/`). Wynik w nowym dokumencie. Overview ma zawierać budżet (koszt miesięczny, roczny, jednorazowy) oraz listy, które konkretnie Must i Nice to have są spełnione / częściowo / niespełnione / nieznane – nie tylko liczby.
+16. ServiceNow w kroku 2: na podstawie PDF-ów od użytkownika; brak dowodu = Unknown + pytanie do vendora (założenie, użytkownik nie dostarczył dokumentacji).
 
 ## Wyniki
 
