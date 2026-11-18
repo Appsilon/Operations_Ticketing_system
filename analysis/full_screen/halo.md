@@ -66,6 +66,10 @@ Notes on method:
 5. Bespoke reports from Halo: "large bespoke reports may incur a fee for the work to be done". No figure ([Guide 887](https://www.usehalo.com/guides/887)).
 6. Zapier routes (#43, #50, possibly #53): a Zapier subscription is separate. The Zapier page shows "Free tier available". Paid tiers were not checked ([Zapier app](https://zapier.com/apps/halo-service-solutions/integrations)).
 
+## Reviewer check (2026-11-18)
+1. Re-checked: the MCP endpoint lets AI assistants "invoke tools in the Halo API such as knowledge search, ticket logging and updating/executing runbooks" (guide 2597). #21 Meets stands: an external agent can act on tickets.
+2. Note from the screen: the integrations catalogue loaded only entries A–F, so "no native integration found" for Notion, Outline, Productive, Aboard and GitHub is not proof of absence.
+
 ## Could not verify
 1. #28: Can Halo delete tickets and attachments automatically after a set retention period (per ticket type or client)? Where is this configured? Does deletion also cover backups?
 2. #18 / #20: With the Default Halo AI connection, is a vector search database for ticket and article matching included at no extra cost? Or must we connect our own (e.g. Azure AI Search)?
