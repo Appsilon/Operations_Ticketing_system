@@ -66,6 +66,12 @@ Narzędzia wymienione w rozmowach (lista otwarta, można dodawać inne):
 13. Język wyników (pliki w `analysis/`): angielski. `CLAUDE.md` i `CHANGELOG.md` po polsku.
 14. Nie wykluczamy żadnego narzędzia (decyzja użytkownika 2026-11-18). Wszystkie sprawdzone narzędzia są w zestawieniu, także te z „Does not meet”.
 
+## Wyniki
+
+1. Google Sheet (utworzony 2026-11-18 przez Drive, właściciel: konto użytkownika): [Helpdesk tool market review (K.O. screen)](https://docs.google.com/spreadsheets/d/1wQezDjJLfttVSxtOb3TP2wDXY0pGRWu62XZcrPSCqp0/edit). Bez connectora Google Sheets nie da się go edytować w miejscu; nowa wersja = nowy plik.
+2. Generator: `tools/build_sheet.py <eksport arkusza wymagań .xlsx> <output.xlsx>`; kopia: `output/helpdesk_tool_market_review.xlsx`.
+3. Podsumowanie w repo: `analysis/02_ko_screen_summary.md`; dowody per vendor: `analysis/ko_screen/`.
+
 ## Dostęp do sieci (stan na 2026-11-18)
 
 1. Strony vendorów: używać `tools/pw_text.js` (Chromium/Playwright przez proxy).
