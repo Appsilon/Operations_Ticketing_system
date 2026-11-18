@@ -58,6 +58,10 @@
 5. Third-party costs, not priced here: a Zapier subscription (needed for #22 and #41–#56 routes and for Slack), and Formstack (a separate product) for a no-code form route.
 6. EU Cloud: "EU hosting is the same price as US Cloud and Self-Hosted." https://www.helpspot.com/hosting/eu-cloud.
 
+## Reviewer check (2026-11-18)
+1. Re-checked: "HelpSpot MCP connects your existing AI agents, such as Claude or ChatGPT, directly to HelpSpot", with write tools "create-request-tool" and "update-request-tool" (KB article 921). #21 Meets stands.
+2. #30 "Does not meet" accepted: the vendor itself says teams that need a messenger widget "should pick a chat-first tool", and its AI feature list has no requester-facing assistant (same logic as Atomicwork in the filter).
+
 ## Could not verify
 1. #8: Can a status list be limited to one category or process, or are statuses always global?
 2. #11: Can a trigger or rule create a linked request in another category (e.g., HR onboarding → IT equipment), and can the parent show the status of linked requests?
