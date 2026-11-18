@@ -57,6 +57,10 @@
 4. **SSO:** no separate SSO subscription found. "Single Sign-On" is part of Growth at $38 per agent per month billed annually ($45 monthly) (https://www.suptask.com/pricing).
 5. **Third parties (prices not checked):** Tellspin (on-call partner app), Zapier or Make (optional), and the Slack plan (Suptask runs inside Slack; whether Slack Connect or Workflow Builder needs a paid Slack plan was not checked).
 
+## Reviewer check (2026-11-18)
+1. Re-checked: the Suptask MCP "cannot create, update, reply to or close" tickets (help centre export, support.suptask.com/llms-full.txt). #21 Partial stands (read-only, same rule as TOPdesk #21).
+2. Counts recomputed by script: Meets 8 / Partial 33 / Unknown 2; Musts: Meets 3 / Partial 9 / Unknown 1. Beta and alpha features (#18, #19, #20, #22) are Partial under the generally-available rule.
+
 ## Could not verify
 1. #7: Does Suptask keep a per-ticket history of assignee changes (who, when, old and new value)? On which plan, and is it part of "Audit & Compliance" (Custom)?
 2. #11: Can one ticket create several linked child tickets in other Inboxes that run in parallel, with their status visible on the parent ticket?
