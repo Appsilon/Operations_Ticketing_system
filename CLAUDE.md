@@ -17,6 +17,12 @@ Czytaj ten plik na starcie każdej sesji i stosuj poniższe zasady.
 11. Bądź szczery i bezpośredni.
 12. Używaj emotek.
 
+## Zasady repo
+
+1. Każda zmiana = osobny commit z opisem, co i dlaczego się zmieniło.
+2. Każdy commit dopisuje wpis do `CHANGELOG.md` (data, co, dlaczego).
+3. Po każdym commicie push na branch roboczy.
+
 ## Zadanie (brief od zlecającego)
 
 Szukamy narzędzia helpdesk / service desk, które w jednym miejscu obsłuży:
