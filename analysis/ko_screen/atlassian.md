@@ -1,0 +1,92 @@
+# Atlassian – K.O. screen
+
+1. Products evaluated: Atlassian Service Collection (cloud). It contains Jira Service Management (JSM), Customer Service Management (CSM), Assets and Rovo. The verdicts are for JSM unless a row says CSM.
+2. Checked: 2026-11-18
+3. Summary: Meets 10 / Partial 6 / Does not meet 0 / Unknown 0 (of 16). Lowest plan meeting the most criteria: **Standard**. Free is capped at 3 agents and has no audit log and no data residency. Approvals may need **Premium** (see #10).
+
+Method notes:
+1. Pages were fetched with headless Chromium (`tools/pw_text.js`, plus a scratch variant that also reads collapsed FAQ text and table cells). About 34 page loads. No page was blocked.
+2. Two guessed URLs returned 404 and were replaced by other official pages: `support.atlassian.com/customer-service-management/docs/what-is-customer-service-management/` and `support.atlassian.com/jira-service-management-cloud/docs/what-are-the-different-types-of-activity-on-an-issue/`.
+3. All sources are official Atlassian pages (atlassian.com, support.atlassian.com). No secondary sources were used.
+
+## Single tool for internal + external?
+
+1. **One subscription, one licence.** Service Collection includes JSM and CSM. Pricing FAQ: “It's included at no additional cost with Service Collection Standard and Premium plans … Each Service Collection user license covers both JSM and CSM.” The compare table lists CSM under Free as well (“Jira Service Management Free, Customer Service Management”). Source: https://www.atlassian.com/software/jira/service-management/pricing
+2. **JSM alone can handle external B2B clients by email, without a portal.** Customers (unlicensed) can “Create and comment on requests via email” (pricing page, “Definitions of agent and customer”). CSM is optional: “If you're currently using Jira Service Management for external support, you may want to move to Customer Service Management to take advantage of some of its more advanced features.” Separate desks are separate service spaces. Per-client isolation inside one space uses work item security levels (see #13). Sources: https://www.atlassian.com/software/jira/service-management/pricing, https://support.atlassian.com/customer-service-management/docs/move-from-jira-service-management-to-customer-service-management/
+3. **Caveat if client support moves to CSM.**
+   - CSM is not listed among the “Relevant products” on Atlassian's ISO/IEC 27001:2022 page.
+   - CSM has no row in the data residency table.
+   - Atlassian notes that “The 'Allow customers to create accounts' setting is a global configuration” and suggests “creating a separate Atlassian site dedicated to external customers” for more control. The pricing page lists multiple sites only on Enterprise.
+   - Sources: https://www.atlassian.com/trust/compliance/resources/iso27001, https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/, https://support.atlassian.com/jira/kb/manage-access-jira-service-management-projects-requests/
+
+## K.O. criteria
+
+| # | Requirement | Verdict | Lowest plan | Evidence (verbatim, short) | Source |
+|---|---|---|---|---|---|
+| 1 | Email-based ticket handling | Meets | Free (100 emails/day). Standard: “Unlimited” | “Your customers can send requests by email if your service space is set up for it. They can also track requests through email notifications.” Customers can “Create and comment on requests via email”. | https://support.atlassian.com/jira-service-management-cloud/docs/how-do-customers-send-requests-to-your-service-project/ ; https://www.atlassian.com/software/jira/service-management/pricing |
+| 3 | Autoresponder | Meets | Free. Templates can't be edited on Free. | “Request created: When customers create requests in the portal or send an email to your email channel, your service space sends a confirmation that their request was received.” | https://support.atlassian.com/jira/kb/customer-notifications-wont-trigger-in-jira-service-management-cloud/ |
+| 4 | Automatic notifications to the requester | Partial (reviewer correction: was "Meets"; notice at each approval step is inferred, not documented) | Free (email cap as #1) | “Customer-visible status changed: When a request transitions to a status that is visible to the customer, your service space notifies the customers involved.” Approvals: “the person who submitted the request is notified of any comments that the approver added.” Note: a notice at each approval step follows from these two documented behaviours (approval steps sit on workflow statuses). No single page states it. | https://support.atlassian.com/jira/kb/customer-notifications-wont-trigger-in-jira-service-management-cloud/ ; https://support.atlassian.com/jira-service-management-cloud/docs/what-are-approvals/ |
+| 5 | Private notes (internal comments) | Meets | Free (no plan limit stated) | “You can also add internal notes (the customer cannot see these)” | https://support.atlassian.com/jira-service-management-cloud/docs/talk-to-the-customer-or-team-members-from-the-new-issue-view/ |
+| 6 | Team collaboration on a ticket | Partial (reviewer correction: was "Meets (2 items not verified)"; @mentions and threads not verified) | Free | “add internal notes … to get help from other members of your team”. “A work item can have subtasks that can be assigned and tracked individually.” History: “when someone edits a field, moves the work item through its workflow”. @mentions and threaded comments not verified on an official page. | https://support.atlassian.com/jira-service-management-cloud/docs/talk-to-the-customer-or-team-members-from-the-new-issue-view/ ; https://support.atlassian.com/jira-service-management-cloud/docs/create-issues-and-sub-tasks/ ; https://support.atlassian.com/jira-software-cloud/docs/what-are-the-different-types-of-activity-on-an-issue/ |
+| 9 | Configurable forms per ticket type or group | Meets | Free (“Work intake through customizable forms”) | “Create forms that use conditional logic to dynamically show or hide fields … Use forms on request types”. Supported field types include “Date Picker” and “Select list (single or multiple choices)”. Required fields exist: “If you have a required field in a request type…”. CSM: per customer group “Forms – the request forms customers use”. | https://support.atlassian.com/jira-service-management-cloud/docs/create-or-edit-a-form/ ; https://support.atlassian.com/jira-service-management-cloud/docs/what-is-chat/ ; https://support.atlassian.com/customer-service-management/docs/move-from-jira-service-management-to-customer-service-management/ |
+| 10 | Multi-step approval workflows | Meets | **Unclear: Free or Premium.** The pricing table ticks “Approvals” (Change Management section) only for Premium and Enterprise. The help doc for approval steps states no plan. | “You can add an approval step to any status in any request type’s workflow.” “Leave requests may need to be approved by an employee’s direct manager.” The approver source is a “user picker (multiple users) or group picker” field. The manager must be put into that field. Automatic manager lookup was not verified. | https://support.atlassian.com/jira-service-management-cloud/docs/what-are-approvals/ ; https://support.atlassian.com/jira-service-management-cloud/docs/add-an-approval-to-a-workflow/ ; https://www.atlassian.com/software/jira/service-management/pricing |
+| 12 | Requesters see only their own tickets | Meets | Free | Customer role: “Raise requests, comment on their own requests”. Sharing setting: “Customers can share requests with their organization, or raise a private request.” | https://support.atlassian.com/jira/kb/manage-access-jira-service-management-projects-requests/ |
+| 13 | Access separated by team desk, project or client | Meets (needs configuration for per-client access) | Free for separate spaces. Plan for security levels not stated. | “You can also control work item level security to restrict a work item to select members of your team.” CSM role: “View and work on all work items in their space”. Atlassian KB on using security levels plus automation calls this a way to “get around this limitation”. | https://support.atlassian.com/jira-service-management-cloud/docs/create-issues-and-sub-tasks/ ; https://support.atlassian.com/customer-service-management/docs/about-permissions-in-customer-service-management/ ; https://support.atlassian.com/jira/kb/restrict-jira-service-management-agent-access-based-on-work-type/ |
+| 15 | SLA/SLO policies with breach warnings | Meets | Free (“queues and SLAs”; 1,250 automation steps per month) | “High priority: 2 hour target / Medium priority: 4 hour target …” Trigger “SLA threshold breached”: “The flow will run when a Jira Service Management SLA has breached or is about to breach. … You can select the SLA to monitor, and the time before or after it has breached to trigger.” | https://support.atlassian.com/jira-service-management-cloud/docs/how-to-structure-your-sla-goals-around-priority-using-jql/ ; https://support.atlassian.com/cloud-automation/docs/jira-automation-triggers/ |
+| 16 | Dashboards and reports | Meets | Free (“AI-driven reporting”) | “default reports … measure common service space functions such as workload, satisfaction, and requests deflected or resolved”. Agents can “View the portal, queues, reports, and SLA metrics”. | https://support.atlassian.com/jira-service-management-cloud/docs/what-are-reports-in-team-managed-service-projects/ ; https://www.atlassian.com/software/jira/service-management/pricing |
+| 17 | Audit log of changes | **Partial** | Standard (site audit log). Enterprise (user-activity log). | Work item history: “Updates on a work item, like when someone edits a field, moves the work item through its workflow”. Audit log: “isn't available if all of your Jira Cloud apps are on the Free plan”. Also: “The audit log isn't intended to record all activity in Jira.” **Missing:** no evidence that entries are tamper-proof (“cannot be edited retroactively”). The comprehensive “Audit logs - user activity” is Enterprise only. | https://support.atlassian.com/jira-software-cloud/docs/what-are-the-different-types-of-activity-on-an-issue/ ; https://support.atlassian.com/jira-cloud-administration/docs/audit-activities-in-jira-applications/ ; https://www.atlassian.com/software/jira/service-management/pricing |
+| 23 | Two-way Slack integration (intake and updates) | **Partial** | Free (“submit requests via email, Microsoft Teams and Slack”) | “When someone sends a message in a request channel, agents can create a work item by: Reacting with a ticket emoji (:ticket:)”. “comments and actions in Slack or Teams immediately sync with the work item, and vice versa.” **Missing:** intake is a shared request channel. No evidence of a private requester–agent ticket or a `/support` command. Approvers do get a DM. | https://support.atlassian.com/jira-service-management-cloud/docs/what-is-chat/ ; https://support.atlassian.com/jira-service-management-cloud/docs/set-up-your-virtual-agent-channels/ |
+| 26 | Mature vendor compliant with ISO 27001, NIS2 and GDPR | **Partial** | All plans (vendor level) | The Compliance Resource Center lists “ISO/IEC27001:2022”, “SOC 2”, “GDPR”, “DORA”, “C5” and “ENISA”. The ISO page lists “Jira Service Management” under Relevant products. The site offers “pre-filled vendor security assessment questionnaires”. **Missing:** no NIS2 entry in the Compliance Resource Center list. CSM is not listed under ISO 27001 Relevant products. | https://www.atlassian.com/trust/compliance/resources ; https://www.atlassian.com/trust/compliance/resources/iso27001 ; https://www.atlassian.com/trust/compliance |
+| 27 | Data stored in the EU | **Partial** | Standard (data residency ticked for Standard, Premium and Enterprise) | “EU Consists of Europe (Frankfurt) and Europe (Dublin) regions”. Backups follow the pinned region for backups created after 28.04.2026. **Missing:** JSM “Customer accounts” are in the “Can’t be pinned” column. Also not pinnable: “App, audit, and operational logs”, “Data in transit (up to 30 days)” and “Cached content, such as emails and notifications”. CSM has no row in the table. For AI, only storage is covered: “all of your in-scope app data will remain stored in the region you've selected”. Rovo uses third-party LLMs (OpenAI, Anthropic, Google), and no EU processing location is stated. | https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/ ; https://www.atlassian.com/trust/ai |
+| 29 | Only agents are paid seats | Meets | Free | “Customers are free and don’t require a Service Collection license.” “Approvers don't need a Jira Service Management license to approve requests – they just have to be customers of the service space.” | https://www.atlassian.com/software/jira/service-management/pricing ; https://support.atlassian.com/jira-service-management-cloud/docs/what-are-approvals/ |
+
+## Pricing (as displayed on 2026-11-18)
+
+The page showed prices in `$`. Atlassian's FAQ on the same page writes “$0.30(USD)”. The prices may be US-localised because requests come from a US proxy. They were recorded as displayed. Default calculator state: **75 agents, Monthly**.
+
+| Product | Plan | Price per agent / month | Billing | Currency | Notes | Source |
+|---|---|---|---|---|---|---|
+| Service Collection (JSM + CSM + Assets + Rovo) | Free | $0 | – | $ | “Free forever for 3 agents”. 2 GB storage. 100 emails/day. No audit log or data residency. | https://www.atlassian.com/software/jira/service-management/pricing |
+| Service Collection | Standard | $21.50 | Monthly | $ | Default calculator (75 agents) | same |
+| Service Collection | Standard | $26.90 | Monthly | $ | Calculator set to 11 agents. 11 is the user's assumed headcount, not data. | same |
+| Service Collection | Standard | $4,050 per year (tier 11–15 agents) | Annual | $ | Calculator, 11 agents (assumption) | same |
+| Service Collection | Premium | $55.28 | Monthly | $ | Default calculator (75 agents) | same |
+| Service Collection | Premium | $61.60 | Monthly | $ | 11 agents (assumption) | same |
+| Service Collection | Premium | $9,200 per year (tier 11–15 agents) | Annual | $ | 11 agents (assumption) | same |
+| Service Collection | Enterprise | Not shown | Annual only | – | “Enterprise plan pricing is available when you enter 201 or more users above” / Contact sales | same |
+
+AI and usage add-ons (as listed):
+1. Rovo credits are included per user per month: Standard 250, Premium 700, Enterprise 1,500. No separate price was shown.
+2. CSM “Customer Service AI Agent”: “Included. $1 per resolution.” (Standard, Premium, Enterprise).
+3. Virtual service agent: Premium and Enterprise only. It “Includes 1,000 assisted conversations per month”. Above that: “start at $0.30(USD)/assisted conversation/month with volume discounts”.
+4. Assets objects included: Standard 5,000, Premium 50,000, Enterprise 500,000, “with the option to purchase more”. No price shown.
+5. Atlassian Guard Standard (SSO/SCIM) needs a separate subscription on Free, Standard and Premium, and is included in Enterprise. Price not on this page.
+
+Licences for requesters and approvers (#29):
+1. Requesters: “Customers are free and don’t require a Service Collection license. Anyone can create a service request” (pricing page FAQ).
+2. Approvers: “Approvers don't need a Jira Service Management license to approve requests – they just have to be customers of the service space.” (https://support.atlassian.com/jira-service-management-cloud/docs/what-are-approvals/).
+3. Internal collaborators: the “Service Desk Team” role can “View work items, add internal comments, attach files” and does not consume an agent licence (https://support.atlassian.com/jira/kb/manage-access-jira-service-management-projects-requests/). The pricing page calls them “Jira users who aren’t licensed as agents”. Whether they need a paid Jira licence: **not stated**.
+
+## Free trial
+
+1. Yes. A 14-day free trial of Standard or Premium. “If 14 days isn’t enough … We offer an extension to a maximum of 30 days”. “Cancel any time, no payment information required.”
+2. The Free plan (3 agents) is permanent.
+3. Source: https://www.atlassian.com/software/jira/service-management/pricing (FAQ “Free trial period, refunds, & subscription plan details”).
+
+## Reviewer check (2026-11-18)
+
+1. Re-checked: “Customers are free and don’t require a Service Collection license” and “Each Service Collection user license covers both JSM and CSM” (pricing page FAQ).
+2. Re-checked: “Approvers don't need a Jira Service Management license to approve requests” (approvals doc).
+3. Corrected #4 and #6 from “Meets” to “Partial”, for consistency with the other screens: a part of the requirement that is not documented or not verified gives “Partial”, not “Meets”.
+
+## Could not verify
+
+1. #6: Are @mentions and threaded replies available in internal notes on JSM work items? (No official page confirming either was opened.)
+2. #10: Are workflow approval steps (outside Change Management) available on Standard, or only on Premium? Can the requester's manager be filled in as approver automatically (for example from a directory or HR source)? Where is each approval decision (who, when, comment) logged?
+3. #13: Which plans include work item security levels in JSM and CSM spaces?
+4. #17: Can work item history or audit log entries be edited or deleted by any role (including admins)? What is the retention period? What does the Standard audit log record compared with Enterprise “user activity”?
+5. #23: Can an employee raise a private ticket from Slack (DM to Assist or a slash command) visible only to them and the agents? The docs conflict on Slack workspaces: “Each Jira site can connect to multiple Slack workspaces” (What is chat?) vs “A Jira site can only connect to one Slack workspace” (Receive requests in Slack). Which is current?
+6. #26: Does Atlassian provide NIS2-specific supply-chain documentation? Is CSM within the ISO 27001 / SOC 2 certification scope?
+7. #27: Where are JSM “Customer accounts” (customer emails and names) stored when pinned to the EU? Where are Rovo, virtual service agent and CSM AI agent prompts processed? Can AI processing be limited to the EU? Does CSM data follow the JSM EU pin?
+8. #29: Do internal collaborators (Service Desk Team role) need any paid Jira licence?
+9. Pricing: what are the prices in EUR for an EU billing address?
