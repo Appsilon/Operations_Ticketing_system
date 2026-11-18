@@ -63,6 +63,12 @@ Notes on method:
 3. SSO: no separate SSO subscription found.
 4. Zapier: no official NinjaOne Zapier app found, so no Zapier cost applies; a custom build would need Zapier Webhooks or own code (cost not assessed).
 
+## Reviewer check (2026-11-18)
+1. #42 "Does not meet" rests on the vendor FAQ answer "No. Nothing outside of the scheduled script workaround."
+2. #49 "Does not meet" is specific to Google Workspace: approver types do not include the requester's manager, and "Since Google does not have SCIM, you will need to create your users manually".
+3. #21 Partial: an MCP server was announced on 2026-10-13, but its guide is behind a login, so ticket tools and general availability are not verified (rule 7 and the generally-available rule).
+4. Counts recomputed by script: Meets 9 / Partial 24 / Does not meet 2 / Unknown 8; Musts: Meets 4 / Partial 6 / Unknown 3.
+
 ## Could not verify
 1. #19: Does Katana AI (or any NinjaOne feature) categorize incoming tickets and route them to a board or technician automatically? Is it GA, and at what price?
 2. #20: Can Katana AI draft knowledge base articles from resolved tickets? If yes, GA or early access, and price?
