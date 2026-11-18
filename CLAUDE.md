@@ -73,6 +73,7 @@ Narzędzia wymienione w rozmowach (lista otwarta, można dodawać inne):
 1. Google Sheet (utworzony 2026-11-18 przez Drive, właściciel: konto użytkownika): [Helpdesk tool market review (K.O. screen)](https://docs.google.com/spreadsheets/d/1wQezDjJLfttVSxtOb3TP2wDXY0pGRWu62XZcrPSCqp0/edit). Bez connectora Google Sheets nie da się go edytować w miejscu; nowa wersja = nowy plik.
 2. Generator: `tools/build_sheet.py <eksport arkusza wymagań .xlsx> <output.xlsx>`; kopia: `output/helpdesk_tool_market_review.xlsx`.
 3. Podsumowanie w repo: `analysis/02_ko_screen_summary.md`; dowody per vendor: `analysis/ko_screen/`.
+4. **Aktualny wynik (wszystkie 59 wymagań):** Google Sheet [Helpdesk tool market review (all 59 requirements)](https://docs.google.com/spreadsheets/d/1tWwD5BCyYKLaB6_teiRJc6untyboCy1Q3kH0_-IPCHY/edit), utworzony 2026-11-18. Generator: `tools/build_full_sheet.py <eksport arkusza wymagań .xlsx> <output.xlsx>`; kopia: `output/helpdesk_tool_market_review_full.xlsx`; podsumowanie: `analysis/03_full_screen_summary.md`; dowody: `analysis/full_screen/`.
 
 ## Dostęp do sieci (stan na 2026-11-18)
 
