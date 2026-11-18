@@ -43,6 +43,28 @@ TOOLS = [
     ("servicenow", "ServiceNow (ITSM + CSM)", "servicenow.md", None, "servicenow.md", None, "ServiceNow"),
 ]
 
+# Strengths and gaps across all 59 requirements (counts are in the Overview formulas, not repeated here).
+FULL_SUMMARY = {
+    "halo": ("Most Must haves met, incl. most Platform and IT Musts. One plan and price with AI included; MCP server for Claude; approvals, SLA warnings, sub-tickets and per-client restriction documented.",
+             "Not fully met Musts: #17 audit log (admins can redact), #20, #22 Notion (no native integration found), #23 Slack (agents only), #27 conflicting EU/UK data statement, #28 retention (Unknown). Onboarding price unknown."),
+    "freshservice": ("Internal side covered: approvals, workspaces per team, restricted groups. MCP server for Claude (generally available). SSO on all plans.",
+                     "Serving external B2B clients in an ESM-mode account is not documented. Not fully met Musts: #6, #8, #17, #20, #22, #23, #27, #28. AI suggestions need the Copilot add-on (Pro and up)."),
+    "atlassian": ("One licence for JSM and CSM; most Nice to haves met; MCP server covers JSM and can create and update work items.",
+                  "Not fully met Musts: #4, #6, #17, #20, #22, #23, #27, #28. Approvals may need Premium; SSO needs paid Atlassian Guard below Enterprise; per-client separation needs security levels."),
+    "zendesk": ("Only tool with a documented read-only audit history; ticket and attachment deletion schedules; many certifications.",
+                "Not fully met Musts: #4, #6, #9, #10, #11, #20, #21 (Bridge in early access), #22, #23, #27, #29. Full desk/client separation only on Enterprise (no public price)."),
+    "zoho": ("Departments per team; EU data centres; native AI at no extra charge.",
+             "Not fully met Musts: #4, #10, #11, #13, #17, #18, #20, #21, #22, #23, #27, #28, #29. Approvals go only to agents; AI that reuses past resolutions only in US/IN data centres."),
+    "topdesk": ("SaaS managed from the EU, prices in EUR, unlimited end users. Mail import per address, built-in automation, API and marketplace.",
+                "Many Musts only partly met, incl. #10 approvals (Change Management only), #21 (MCP read-only, Excellent plan), #23 (no native Slack), #25 (Google SSO and 2FA not documented)."),
+    "freshdesk": ("External support covered: email, SLA policies, group-based access. MCP server for Claude (generally available). SAML SSO on all plans.",
+                  "No ticket approvals (#10). No recurring tickets (#42, per a still-published 2017 article). Not fully met Musts include #4, #8, #12, #15, #17, #20, #22, #23."),
+    "hubspot": ("HubSpot is already used for sales and marketing (user information). MCP server and Claude connector can read and update tickets.",
+                "No ticket approvals (#10). No own ISO 27001. Few IT Musts met. Not fully met Musts include #11, #13, #17, #18, #23, #24, #28."),
+    "servicenow": ("Most detailed EU residency commitment (SPP EU); only vendor with NIS2-specific documents (NDA portal).",
+                   "Feature documentation not accessible, so most requirements are Unknown. No public price or trial. ITSM and CSM are two products."),
+}
+
 HDR_FILL, SEC_FILL = PatternFill("solid", fgColor="1F3864"), PatternFill("solid", fgColor="D9E1F2")
 HDR_FONT = Font(name="Arial", size=10, bold=True, color="FFFFFF")
 BASE, BOLD = Font(name="Arial", size=10), Font(name="Arial", size=10, bold=True)
@@ -229,7 +251,7 @@ def main(req_path, out_path):
              ("Estimated monthly cost in EUR (ECB rate)", "eur", None), ("Within monthly budget?", "budget", None),
              ("Extra costs (one-time, add-ons)", "text", "extra"), ("Free trial", "text", "trial")]
     rows.append(("Summary", "section", None))
-    rows += [("Main strengths", "text", "strengths"), ("Main gaps and risks", "text", "gaps"),
+    rows += [("Main strengths", "summary", 0), ("Main gaps and risks", "summary", 1),
              ("Details", "links", None)]
     rowno = {}
     for i, (label, kind, payload) in enumerate(rows):
@@ -247,6 +269,8 @@ def main(req_path, out_path):
             ref = f"{get_column_letter(2 + j)}"
             if kind == "text":
                 cell.value = ASPECTS[key][payload]
+            elif kind == "summary":
+                cell.value = FULL_SUMMARY[key][payload]
             elif kind == "count":
                 prio, v = payload
                 cell.value = f'=COUNTIFS({rng("E")},"{prio}",{trng(col)},"{v}")'
