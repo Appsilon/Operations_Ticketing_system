@@ -38,6 +38,15 @@
 1. A tool that fails only #23, #27 or #29 but meets the other 13 criteria is **not dropped silently**.
 2. It gets the flag “Fails only rule C criteria” and goes on to the full check of all 59 requirements.
 
+## Verdict rules (applied to every screen)
+
+1. Meets: every part of the requirement has direct evidence on an official vendor page.
+2. Partial: some parts have evidence; other parts are missing, not documented or not verified.
+3. Does not meet: evidence that the feature is absent.
+4. Unknown: no direct evidence. An inference is not evidence.
+5. #26: Meets = ISO 27001 and SOC 2 confirmed on an official vendor page. NIS2-specific supply-chain documentation was not found on public pages for any of the 7 vendors, so NIS2 is an open question for every vendor and does not change the verdict.
+6. #29: Meets = an official statement that requesters / end users are free or unlimited. Partial = confirmed that a requester-side role (for example approvers) needs a paid seat. Unknown = no explicit statement.
+
 ## Observations
 
 1. Rule A alone does not separate tools: 8 of its 9 requirements are rated “Standard” in the sheet, #9 “Standard (higher plans)”. That rating is preliminary (Legend: “to be verified during trials”).

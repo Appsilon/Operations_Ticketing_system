@@ -3,7 +3,7 @@
 2. Checked: 2026-11-18 (all pages fetched 2026-11-18, 13:32–13:47 UTC). No page was blocked.
 3. Summary per product:
    - **Freshservice:** Meets 12 / Partial 4 / Does not meet 0 / Unknown 0 (of 16). Lowest plan meeting the most criteria: **Growth, USD 49 per agent/month billed annually (USD 59 billed monthly)**. All 12 "Meets" are available on Growth. Enterprise (price not published) adds only the Audit Log (#17, which stays Partial).
-   - **Freshdesk:** Meets 9 / Partial 5 / Does not meet 1 (#10 approvals) / Unknown 1 (#12) (of 16). Lowest plan meeting the most criteria: **Pro, USD 55 per agent/month billed annually (USD 66 billed monthly)**. Enterprise (USD 89/107) adds only the Audit Log (#17, which stays Partial).
+   - **Freshdesk:** Meets 8 / Partial 5 / Does not meet 1 (#10 approvals) / Unknown 2 (#12, #29) (of 16). Lowest plan meeting the most criteria: **Pro, USD 55 per agent/month billed annually (USD 66 billed monthly)**. Enterprise (USD 89/107) adds only the Audit Log (#17, which stays Partial).
    - Plan coverage comes from each pricing page's "Compare features" grid, read by cell position. Help-center articles were used for the detail of each feature.
 
 ## Single tool for internal + external?
@@ -54,7 +54,7 @@
 | 23 | Two-way Slack integration | Partial | Not stated ("all plans providing API access") | "Both a Freshdesk agent and a Slack member who is not an agent on Freshdesk, can create tickets directly from the Slack interface." Replies in the channel thread are "added as a private note". "Ticket notes and replies from Freshdesk to Slack are restricted to 250 characters". **Missing:** notifications go to group-mapped team channels, not to a private requester–agent conversation. A requester's Slack reply becomes a private note. A non-agent "will not be able to update the ticket". | [Slack app](https://support.freshdesk.com/support/solutions/articles/50000001687-simplifying-collaboration-using-the-latest-slack-app) |
 | 26 | Mature vendor: ISO 27001 / NIS2 / GDPR | Meets (NIS2 not named) | All (vendor level) | Same Freshworks Trust Center as Freshservice: ISO/IEC 27001:2022, ISO/IEC 27701:2019, SOC 3 and DPA are public. SOC 1, SOC 2 Type 2, BCP, DR test summary and SIG/VSA are available on request. NIS2 is not mentioned. | [Trust Center](https://trust.freshworks.com/) |
 | 27 | Data stored in the EU | Partial | All | "Our Data Centres are located in: US EEA UAE IND AU You can choose your preferred data location when you sign up". Backups are in the same region, and Copilot AI runs locally by default (see Freshservice #27). **Missing:** the same caveats as Freshservice #27 (data may be "shifted"; US backup mail provider; AI training opt-out by email). None of the pages read names the EU country. | [Data servers](https://support.freshdesk.com/support/solutions/articles/235810-where-is-your-data-servers-located-); [Sub-processors](https://www.freshworks.com/privacy/sub-processor/) |
-| 29 | Only agents are paid seats | Meets | Growth; Pro for free collaborators | Pricing is "/agent/month". Collaborators: "5,000 collaborators included" (Pro, Enterprise). Occasional agents need paid day passes. The pages read do not state explicitly that contacts are free or unlimited. | [Pricing](https://www.freshworks.com/freshdesk/pricing/) |
+| 29 | Only agents are paid seats | Unknown (reviewer correction: was "Meets"; uniform #29 rule, no explicit "contacts are free" statement) | Growth; Pro for free collaborators | Pricing is "/agent/month". Collaborators: "5,000 collaborators included" (Pro, Enterprise). Occasional agents need paid day passes. The pages read do not state explicitly that contacts are free or unlimited. | [Pricing](https://www.freshworks.com/freshdesk/pricing/) |
 
 ## Pricing (as displayed on 2026-11-18)
 The prices shown are in USD. The request region of this session was not controlled, and EUR prices were not checked.
@@ -91,6 +91,7 @@ The prices shown are in USD. The request region of this session was not controll
 1. Re-checked: the only Freshdesk “Approval workflow” is for knowledge-base content (pricing page data).
 2. Re-checked: Freshservice “Send Approval Mail to Reporting Manager” (hierarchical approvals article).
 3. Re-checked: Freshservice accounts in “Managed Services (MSP)” mode have different rules (multiple requester portals article).
+4. Corrected Freshdesk #29 from “Meets” to “Unknown” under the uniform #29 rule in `analysis/01_ko_criteria.md`: the pricing page (including collapsed FAQ text) has no explicit statement that contacts are free or unlimited.
 
 ## Could not verify
 1. Freshdesk #12 (Unknown). Question: "With no company-wide 'Ticket' toggle and no public ticket URL placeholder, can a contact see any ticket in the portal other than those they requested or are CC'd on? Can the public ticket URL be disabled for the whole account?"
