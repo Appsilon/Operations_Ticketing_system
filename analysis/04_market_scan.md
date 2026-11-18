@@ -70,3 +70,19 @@ Names only; where each was found. Sources are secondary (web search result pages
 | 33 | Atera | F | Atera blog (MSP help desk roundup) |
 | 34 | NinjaOne | F | MSP roundups |
 | 35 | SuperOps | F | SuperOps blog |
+
+## Step 2 result – Quick filter (2026-11-18)
+
+Details, quotes and sources: `analysis/market_scan/filter_A.md` … `filter_F.md`. Answers are Q1 / Q2 / Q3 / Q4.
+
+1. Pass (15): BMC Helix ITSM (Partial/Yes/Yes/Yes), Ivanti Neurons for ITSM (Partial/Yes/Partial/Yes), ManageEngine ServiceDesk Plus (Partial/Yes/Yes/Yes), InvGate (Partial/Yes/Partial/Yes), Xurrent (Partial/Yes/Yes/Yes), Zammad (Yes/Yes/Yes/Partial), OTRS (Yes/Partial/Yes/Unknown), Znuny (Partial/Yes/Partial/Unknown), HelpSpot (Yes/Partial/Yes/Partial), Deskpro (Yes/Yes/Yes/Yes), Intercom (Partial/Yes/Partial/Yes), Unthread (Yes/Yes/Partial/Yes), Suptask (Yes/Yes/Yes/Yes), NinjaOne Ticketing (Yes/Yes/Yes/Yes), SuperOps (Partial/Yes/Yes/Yes).
+2. Pass with flag (9): OpenText, SummitAI (formerly SymphonyAI Summit), IFS assyst (site blocked), SysAid, EasyVista, Proactivanet, Hesk, ConnectWise PSA (site blocked), Atera (site blocked).
+3. Fail (11), with the reason:
+   1. Microsoft System Center Service Manager: Q1 No (internal IT only).
+   2. GLPI / Teclib: Q2 No (ISO 27001 audit only in 2027, no SOC 2).
+   3. HelpSpace, Userlike: Q1 No (customer communication only).
+   4. Crisp: Q2 No (no SOC 2 audit, ISO 27001 only "aligning").
+   5. Pylon, Plain, Thena: Q1 No (B2B customer support only).
+   6. ClearFeed: Q3 No (EU data residency "Coming soon").
+   7. Siit, Atomicwork: Q1 No (internal / employee service only).
+4. Q1 = Yes (vendor documents both uses in one product): Zammad, OTRS, HelpSpot, Deskpro, Unthread, Suptask, NinjaOne Ticketing (7). For most Q1 = Partial products the second use needs another product, edition or licence plan (BMC Customer Service Management, ManageEngine MSP edition, Xurrent MSP plan, SuperOps MSP edition) or is mentioned only briefly.
