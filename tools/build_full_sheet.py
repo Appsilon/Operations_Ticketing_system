@@ -373,6 +373,42 @@ def main(req_path, out_path):
     vq.freeze_panes = "A4"
     vq.auto_filter.ref = f"A3:E{r - 1}"
 
+    # ---------------- Market scan (all names from the long list) ----------------
+    msc = wb.create_sheet("Market scan")
+    msc["A1"] = "Extended market scan: quick filter of 35 more names (official vendor pages, 2026-11-18)"
+    msc["A1"].font = TITLE
+    msc["A2"] = ("Q1 one product for internal + external use; Q2 own ISO 27001 or SOC 2; Q3 EU hosting possible; "
+                 "Q4 Slack integration. Fail = a No on Q1, Q2 or Q3. Pass (flag) = Unknown on Q1, Q2 or Q3.")
+    header(msc, 4, ["Group", "Product", "Q1", "Q2", "Q3", "Q4", "Filter result", "Reason", "Deployment",
+                    "Starting price (as displayed)", "Next step"], [8, 34, 9, 9, 9, 9, 13, 60, 22, 40, 34])
+    full_names = {t[1] for t in TOOLS}
+    r = 5
+    for g in "ABCDEF":
+        fp = ROOT / "analysis" / "market_scan" / f"filter_{g}.md"
+        if not fp.exists():
+            continue
+        inside = False
+        for line in fp.read_text().splitlines():
+            if line.startswith("## "):
+                inside = line.startswith("## Summary")
+                continue
+            if inside and line.startswith("| ") and not line.startswith("| Product") and not line.startswith("|---"):
+                c = [x.strip() for x in line.strip().strip("|").split("|")]
+                prod = c[0]
+                in_full = any(prod.split(" (")[0].split()[0] in n for n in full_names)
+                nxt = ("Full assessment (see Overview)" if in_full else
+                       ("Filter only (passed; not assessed further)" if c[5].startswith("Pass") else "Out (failed filter)"))
+                for k, v in enumerate([g, prod] + c[1:5] + [c[5], clean(c[6]), c[7] if len(c) > 7 else "",
+                                                             clean(c[8]) if len(c) > 8 else "", nxt], 1):
+                    msc.cell(row=r, column=k, value=v)
+                r += 1
+    for v, color in (("Yes", "D9EAD3"), ("Partial", "FFF2CC"), ("No", "F4CCCC"), ("Unknown", "EFEFEF")):
+        msc.conditional_formatting.add(f"C5:F{max(r - 1, 5)}", CellIsRule(operator="equal", formula=[f'"{v}"'],
+                                                                          fill=PatternFill("solid", fgColor=color)))
+    finish(msc)
+    msc.freeze_panes = "C5"
+    msc.auto_filter.ref = f"A4:K{max(r - 1, 5)}"
+
     # ---------------- Method and sources ----------------
     ms = wb.create_sheet("Method and sources")
     ms["A1"] = "Method and sources"
