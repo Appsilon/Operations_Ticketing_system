@@ -28,3 +28,45 @@
 
 1. Products that pass step 2 get the same full assessment as the first 9: 16 K.O. criteria and the other 43 requirements, same verdict rules (`analysis/01_ko_criteria.md`).
 2. Results are added to the repo and to a new version of the review workbook (no Google Sheets connector, so the Sheet cannot be edited in place).
+
+## Step 1 result – Long list (35 names, built 2026-11-18)
+
+Names only; where each was found. Sources are secondary (web search result pages, mostly vendor blogs and directories) and are not evidence for any verdict.
+
+| # | Product | Group | Found in |
+|---|---|---|---|
+| 1 | BMC Helix ITSM | A Enterprise ITSM/ESM | Web search "enterprise service management … 2026" (InvGate and CloudNuro roundups); Gartner Peer Insights vendor page |
+| 2 | Ivanti Neurons for ITSM | A | Harmony.io ESM 2026 roundup; G2 "Ivanti ITSM alternatives" page |
+| 3 | OpenText Service Management | A | Gartner Peer Insights vendor page (IT Service Management Platforms) |
+| 4 | SymphonyAI (Summit) | A | Gartner Peer Insights vendor page |
+| 5 | IFS assyst | A | Gartner Peer Insights vendor page |
+| 6 | Microsoft System Center Service Manager | A | Gartner Peer Insights vendor page |
+| 7 | ManageEngine ServiceDesk Plus (incl. MSP edition) | B Mid-market ITSM/ESM | ChannelInsider MSP 2026 roundup; Gartner Peer Insights; InvGate roundup |
+| 8 | InvGate Service Management | B | Gartner Peer Insights (product page) |
+| 9 | SysAid | B | G2 ITSM alternatives page |
+| 10 | Xurrent (formerly 4me) | B | Xurrent blog result in web search; reviewer's earlier suggestion |
+| 11 | EasyVista (EV Service Manager) | B | Gartner Peer Insights vendor page |
+| 12 | Zammad | C European / open source | europeanpurpose.com; EU-alternatives search |
+| 13 | OTRS | C | europeanpurpose.com |
+| 14 | Znuny | C | Reviewer's earlier suggestion (not found in search) |
+| 15 | GLPI | C | Reviewer's earlier suggestion (not found in search) |
+| 16 | Proactivanet | C | Gartner Peer Insights vendor page |
+| 17 | HelpSpot | D Classic help desk | HelpSpot EU cloud page in search |
+| 18 | Hesk | D | Hesk EU-hosted page in search |
+| 19 | HelpSpace | D | eualternative.eu |
+| 20 | Deskpro | D | Reviewer's earlier suggestion (not found in search) |
+| 21 | Intercom | D | Intercom "best help desk software" page in search |
+| 22 | Crisp | D | europeanpurpose.com listing |
+| 23 | Userlike | D | europeanpurpose.com listing |
+| 24 | Pylon | E Slack-native | Slack-native roundups (eesel, Unthread) |
+| 25 | Plain | E | Plain blog "best support tools Slack/MS Teams" |
+| 26 | Thena | E | Slack-native roundups |
+| 27 | Unthread | E | Unthread blog |
+| 28 | ClearFeed | E | ClearFeed blog |
+| 29 | Suptask | E | Suptask blog; eesel |
+| 30 | Siit | F Internal AI / MSP-PSA | Reviewer's earlier suggestion (not found in search) |
+| 31 | Atomicwork | F | Reviewer's earlier suggestion (not found in search) |
+| 32 | ConnectWise PSA | F | InvGate MSP roundup |
+| 33 | Atera | F | Atera blog (MSP help desk roundup) |
+| 34 | NinjaOne | F | MSP roundups |
+| 35 | SuperOps | F | SuperOps blog |
