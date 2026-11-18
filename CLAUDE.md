@@ -49,6 +49,26 @@ Narzędzia wymienione w rozmowach (lista otwarta, można dodawać inne):
 - Odczyt: connector Google Drive. `read_file_content` zwraca tylko próbkę tabeli – pobieraj eksport .xlsx (`download_file_content`) i parsuj wszystkie wiersze.
 - Brak uprawnień do edycji arkusza (stan na 2026-11-18).
 
+## Decyzje (stan na 2026-11-18)
+
+1. Arkusz jest jedynym źródłem wymagań i jedynym miejscem z aktualnymi informacjami.
+2. Szukamy najpierw jednego narzędzia (wewnętrzne + klienci). Dwa narzędzia rozważamy dopiero, gdy żadne pojedyncze nie spełnia kryteriów K.O.
+3. Budżet nieznany i nie ustalamy go (to decyzja poza naszym zadaniem). Zapisujemy ceny: plan, cena za agenta, okres rozliczenia, waluta, data sprawdzenia, link.
+4. Liczba agentów to założenie użytkownika, nie dane: Platform ok. 6 (arkusz, Notes #10), Finance 1, People 2, IT 1, Operations 1, razem ok. 11. Używać tylko do orientacyjnej sumy i zawsze oznaczać jako założenie.
+5. HubSpot jest używany do sprzedaży i marketingu.
+6. Lista narzędzi do przeglądu (zaakceptowana): Atlassian (JSM / Service Collection), Freshworks, Zendesk, HubSpot Service Hub, Zoho Desk, HaloITSM/HaloPSA, TOPdesk. ServiceNow: nierozstrzygnięte.
+7. Ile narzędzi trafi później do testów – nie nasza decyzja. Cel: racjonalny przegląd, z którego team wybierze. Idealny wynik, jeśli się da: 3 do focus grup + 2 do pilotu u klientów.
+8. Wynik budujemy tutaj i zapisujemy w repo. Google Sheets tworzymy dopiero na prośbę użytkownika.
+9. Termin: praca trwa do końca bieżącego tygodnia (16–22.11.2026), nawet jeśli nie skończymy.
+10. Kryteria K.O.: propozycja w `analysis/01_kryteria_KO.md` – czeka na akceptację użytkownika.
+
+## Dostęp do sieci (stan na 2026-11-18)
+
+1. Strony vendorów: działa `tools/pw_text.js` (Chromium/Playwright przez proxy) oraz curl z nagłówkiem User-Agent.
+2. Narzędzie WebFetch nie działa (ENOTFOUND) – nie używać.
+3. WebSearch działa – tylko do znajdowania stron; źródła wtórne (blogi, Capterra itp.) zawsze oznaczać jako wtórne.
+4. servicenow.com blokuje przeglądarkę headless („Access Denied”).
+
 ## Proces
 
 1. Etap 1: sprawdzić, czy przygotowanie jest kompletne (wymagania, dostępy, pytania do użytkownika) – dopiero potem przegląd rynku.
