@@ -69,6 +69,7 @@ Narzędzia wymienione w rozmowach (lista otwarta, można dodawać inne):
 16. ServiceNow w kroku 2: na podstawie PDF-ów od użytkownika; brak dowodu = Unknown + pytanie do vendora (założenie, użytkownik nie dostarczył dokumentacji).
 17. Connectora Google Sheets nie będzie (decyzja użytkownika 2026-11-18). Rekomendacja 3 narzędzi wstrzymana („czekaj”).
 18. Rozszerzony przegląd rynku (decyzja użytkownika 2026-11-18): pierwsza lista narzędzi powstała z briefu, arkusza i mojej wiedzy ogólnej, bez systematycznego przeglądu i bez spisanych kryteriów. Nowa metoda i kryteria: `analysis/04_market_scan.md` (długa lista → szybki filtr 4 pytań na oficjalnych stronach → pełna ocena 59 wymagań dla tych, które przejdą).
+19. Krok 3 rozszerzonego przeglądu (decyzja użytkownika 2026-11-18): pełna ocena 59 wymagań tylko dla 7 produktów z Q1 = Yes w filtrze: Zammad, OTRS, HelpSpot, Deskpro, Unthread, Suptask, NinjaOne Ticketing. Pozostałe 17 z „Pass” zostaje z wynikiem filtra (do ewentualnego rozszerzenia).
 
 ## Wyniki
 

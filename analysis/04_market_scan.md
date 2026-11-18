@@ -86,3 +86,9 @@ Details, quotes and sources: `analysis/market_scan/filter_A.md` … `filter_F.md
    6. ClearFeed: Q3 No (EU data residency "Coming soon").
    7. Siit, Atomicwork: Q1 No (internal / employee service only).
 4. Q1 = Yes (vendor documents both uses in one product): Zammad, OTRS, HelpSpot, Deskpro, Unthread, Suptask, NinjaOne Ticketing (7). For most Q1 = Partial products the second use needs another product, edition or licence plan (BMC Customer Service Management, ManageEngine MSP edition, Xurrent MSP plan, SuperOps MSP edition) or is mentioned only briefly.
+
+## Step 3 scope (user decision, 2026-11-18)
+
+1. Full assessment (16 K.O. + 43 other requirements) only for the 7 products with Q1 = Yes: Zammad, OTRS, HelpSpot, Deskpro, Unthread, Suptask, NinjaOne Ticketing.
+2. Reason: decision 2 (one tool first); most Q1 = Partial products need a second product, edition or licence plan for the other use.
+3. The other 17 products that passed keep their filter result and can be added later.
