@@ -74,3 +74,7 @@
 12. #57: Is there an in-product way to delete or export all data about one person (requester), or only by email request to support+data@unthread.io?
 13. #42: Is there a built-in "create conversation" automation action for scheduled or recurring tickets, including a one-off date trigger?
 14. Plans: which plan includes Automations, AI features (suggested responses, auto ticket type, tagging), the Admin MCP, PagerDuty, and the customer portal service catalog? Are there AI usage or conversation limits on Pro, and what are they? What is the monthly vs annual price of Pro?
+
+## Reviewer check (2026-11-18)
+1. Re-checked: "Unthread supports the Model Context Protocol (MCP)" with write tools such as "update_conversation" and "create_conversation_comment" (https://docs.unthread.io/docs/unthread-ai/unthread-mcp). #21 Meets stands: an external agent can read and act on tickets.
+2. Counts recomputed by script: Meets 19 / Partial 22 / Unknown 2; Musts: Meets 9 / Partial 3 / Unknown 1.
