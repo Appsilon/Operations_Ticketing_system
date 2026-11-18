@@ -65,6 +65,10 @@ Notes on method:
 6. Productive app for Jira: "Free app". Source: https://marketplace.atlassian.com/apps/1222053/productive-financial-planning-for-jira
 7. Zapier (#43, #50, #51, #55) and Marketplace apps (checklists, reminders, calendar, ServiceNow ticket sync): prices not checked.
 
+## Reviewer check (2026-11-18)
+1. Re-checked: "Summarize and search Jira, Jira Service Management, Confluence" and "Create and update work items or pages using natural language commands" (Atlassian remote MCP server). #21 Meets stands.
+2. #25 kept as Meets: SSO with Google Workspace and 2FA exist; the separate Guard Standard cost is recorded in the row and in the add-on list.
+
 ## Could not verify
 1. #20: Can Rovo-generated KB articles be linked to or published in a non-Confluence knowledge base (Notion, Outline)? Does the JSM knowledge base in Service Collection need a separate Confluence licence?
 2. #21: Which Service Collection plans (incl. Free) can use the Atlassian MCP server, and which JSM tools (requests, queues, comments, transitions) does v2 expose?
