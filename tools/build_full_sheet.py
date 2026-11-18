@@ -41,7 +41,16 @@ TOOLS = [
     ("freshdesk", "Freshdesk", "freshworks.md", "Freshdesk", "freshdesk.md", None, "Freshworks"),
     ("hubspot", "HubSpot Service Hub", "hubspot.md", None, "hubspot.md", None, "HubSpot"),
     ("servicenow", "ServiceNow (ITSM + CSM)", "servicenow.md", None, "servicenow.md", None, "ServiceNow"),
+    # extended market scan (analysis/04_market_scan.md), products with Q1 = Yes
+    ("unthread", "Unthread", "unthread.md", None, "unthread.md", None, "Unthread"),
+    ("deskpro", "Deskpro", "deskpro.md", None, "deskpro.md", None, "Deskpro"),
+    ("suptask", "Suptask", "suptask.md", None, "suptask.md", None, "Suptask"),
+    ("helpspot", "HelpSpot", "helpspot.md", None, "helpspot.md", None, "HelpSpot"),
+    ("zammad", "Zammad", "zammad.md", None, "zammad.md", None, "Zammad"),
+    ("otrs", "OTRS", "otrs.md", None, "otrs.md", None, "OTRS"),
+    ("ninjaone", "NinjaOne Ticketing", "ninjaone.md", None, "ninjaone.md", None, "NinjaOne"),
 ]
+SCAN_KEYS = {"unthread", "deskpro", "suptask", "helpspot", "zammad", "otrs", "ninjaone"}
 
 # Strengths and gaps across all 59 requirements (counts are in the Overview formulas, not repeated here).
 FULL_SUMMARY = {
@@ -64,6 +73,128 @@ FULL_SUMMARY = {
     "servicenow": ("Most detailed EU residency commitment (SPP EU); only vendor with NIS2-specific documents (NDA portal).",
                    "Feature documentation not accessible, so most requirements are Unknown. No public price or trial. ITSM and CSM are two products."),
 }
+
+# ---- Data for the 7 extended-scan products, curated from analysis/ko_screen/<key>.md and full_screen/<key>.md ----
+EXTRA_PRICING = [
+    ("unthread", "Unthread", "Pro", 85, "USD", "Not stated (same price on Annual and Monthly tabs)", "Min 5 seats", "Conversation limits apply. SSO needs Business; data residency and audit logs need Enterprise (prices not published).", "https://unthread.io/pricing"),
+    ("unthread", "Unthread", "Business / Enterprise", "Not public", "", "", "", "Get in touch.", "https://unthread.io/pricing"),
+    ("deskpro", "Deskpro Cloud", "Team", 39, "USD", "Not displayed (page source: annual)", "Min 5 agents", "No Deskpro AI, no Lite Agents.", "https://www.deskpro.com/pricing"),
+    ("deskpro", "Deskpro Cloud", "Professional", 59, "USD", "Not displayed (page source: annual)", "Min 10 agents", "Deskpro AI, 50 Lite Agents.", "https://www.deskpro.com/pricing"),
+    ("deskpro", "Deskpro Cloud", "Enterprise", 99, "USD", "Not displayed (page source: annual)", "Min 25 agents", "Global data centre (paid), sandbox.", "https://www.deskpro.com/pricing"),
+    ("suptask", "Suptask", "Starter", 15, "USD", "Annual (18 monthly)", "", "Page shows $ without naming the currency. No email intake, no approvals, no SLA.", "https://www.suptask.com/pricing"),
+    ("suptask", "Suptask", "Professional", 24, "USD", "Annual (29 monthly)", "", "Email, approvals, API, MCP (read-only).", "https://www.suptask.com/pricing"),
+    ("suptask", "Suptask", "Growth", 38, "USD", "Annual (45 monthly)", "", "Approval sequences, SLA, SSO.", "https://www.suptask.com/pricing"),
+    ("suptask", "Suptask", "Custom", "Not public", "", "", "", "Audit & Compliance, AI assistants, CRM/HRIS connectors.", "https://www.suptask.com/pricing"),
+    ("helpspot", "HelpSpot", "Single plan (15-agent tier)", 17.78, "USD", "Annual only", "15 (tier needed for about 11 agents)", "US$3,199 per year for up to 15 agents; 10-agent tier US$2,199. Same price for US/EU cloud or self-hosted.", "https://www.helpspot.com/pricing"),
+    ("zammad", "Zammad hosted", "Professional v2", 16, "EUR", "Annual (18 monthly)", "Max 35", "SLAs, ticket fields, AI optional. Excl. VAT.", "https://zammad.com/en/pricing/table"),
+    ("zammad", "Zammad hosted", "Plus v2", 25, "EUR", "Annual (27 monthly)", "Unlimited", "Core Workflows, standard reporting. Excl. VAT.", "https://zammad.com/en/pricing/table"),
+    ("otrs", "OTRS", "Starter / Advanced / Pro", "Not public", "", "Annual in advance, 1-year minimum (2024 terms)", "", "Get a quote. AI included in Advanced and Pro.", "https://otrs.com/how-to-buy/"),
+    ("ninjaone", "NinjaOne platform", "Quote (per device)", "Not public", "", "Per device", "", "Per managed device: US$1.50 (10,000 endpoints) to US$3.75 (50 or fewer) per month; not per agent.", "https://www.ninjaone.com/pricing/"),
+]
+# Vendor minimums or tiers: the number of agents billed at least (used by the Overview cost estimate)
+MIN_BILLED = {("unthread", "Pro"): 5, ("deskpro", "Team"): 5, ("deskpro", "Professional"): 10, ("deskpro", "Enterprise"): 25,
+              ("helpspot", "Single plan (15-agent tier)"): 15}
+EXTRA_PLAN_USED = {"unthread": "Pro", "deskpro": "Team", "suptask": "Growth", "helpspot": "Single plan (15-agent tier)",
+                   "zammad": "Plus v2", "otrs": "Starter / Advanced / Pro", "ninjaone": "Quote (per device)"}
+EXTRA_ASPECTS = {
+    "unthread": dict(products="Unthread, Slack-native (Pro / Business / Enterprise).",
+        one_tool="Yes: projects and portal can each be set to internal or external support. Inbound email is posted to an internal Slack channel, so it depends on Slack.",
+        a10="Partial. An approval request is a DM to one approver; a manager-then-head chain needs custom automations.",
+        a17="Partial. Audit log on Enterprise only (account events); the ticket audit trail does not show who made each change.",
+        a23="Meets. Slack-native intake and replies.",
+        a26="Partial. SOC 2 Type II; no ISO 27001 found.",
+        a27="Partial. Data goes to the US by default; EU database instance only on Enterprise.",
+        a29="Unknown. Priced per agent; no statement that requesters are free.",
+        ai="No AI price listed; bring-your-own model on higher plans.",
+        extra="Min 5 seats. SSO needs Business; data residency and audit logs need Enterprise (prices not published).",
+        trial="Yes, 14 days (via a demo)."),
+    "deskpro": dict(products="Deskpro Cloud (Team / Professional / Enterprise); self-hosted Deskpro Private exists.",
+        one_tool="Yes per vendor; departments separate the desks.",
+        a10="Partial. Approvals with templates and logging; chaining steps only in a 2019 post.",
+        a17="Partial. Admin audit log and ticket history; agents can edit or delete messages.",
+        a23="Partial. Deskpro's own Slack app; non-agents can open tickets from channels; DMs not supported.",
+        a26="Meets. ISO 27001 and SOC 2 Type II on the security page.",
+        a27="Partial. EU hosting by default; backup and AI region not stated; EU AI provider option from Professional.",
+        a29="Meets. End users free and unlimited; approvers can be free CRM users.",
+        ai="Deskpro AI from Professional (US$59); not in Team.",
+        extra="Minimums: Team 5, Professional 10, Enterprise 25 agents. Implementation services paid (price not shown).",
+        trial="Yes, 14 days, no card."),
+    "suptask": dict(products="Suptask, Slack-native service desk (Starter / Professional / Growth / Custom).",
+        one_tool="Yes per vendor: 'Service desk for internal teams and customer support'; email intake from Professional.",
+        a10="Meets. Sequential approvals (manager field, then Head of Finance), recorded in the ticket (Growth).",
+        a17="Partial. 'Audit & Compliance' only on Custom; no field-change log.",
+        a23="Meets. Slack-native intake and updates.",
+        a26="Partial. SOC 2 Type II; ISO 27001 only at AWS.",
+        a27="Partial. AWS Ireland; backups and AI region not stated; ticket messages are also stored in the customer's Slack.",
+        a29="Meets. Requesters unlimited at no cost; approvers need no seat.",
+        ai="No separate AI price; AI assistants partly beta or Custom-only.",
+        extra="Integrations from $20 per month each; Custom plan for CRM/HRIS connectors (price on request).",
+        trial="Yes, 14 days on Growth, no card."),
+    "helpspot": dict(products="HelpSpot (US or EU cloud, or self-hosted; one plan with all features).",
+        one_tool="Yes per vendor (filter Q1 Yes).",
+        a10="Unknown. No approval feature found in the manuals.",
+        a17="Partial. Audit log can be switched off; entries kept up to 730 days.",
+        a23="Partial. Slack only via Zapier or webhooks; nothing syncs back.",
+        a26="Partial. Own SOC 2 'in progress'; ISO 27001 belongs to AWS.",
+        a27="Partial. Hosting and backups in Frankfurt; AI processing region not stated.",
+        a29="Meets. 'Customers never need licenses'.",
+        ai="Included; no add-on.",
+        extra="Tiered: about 11 agents need the 15-agent tier (US$3,199 per year). Zapier subscription needed for Slack.",
+        trial="Yes, 21 days, no card; 90-day money-back guarantee."),
+    "zammad": dict(products="Zammad (hosted SaaS in Germany; self-hosting possible).",
+        one_tool="Yes per vendor (filter Q1 Yes).",
+        a10="Does not meet. No native approvals; a closed GitHub PR says an approval engine 'may be' added in the future.",
+        a17="Partial. Ticket history; no immutability statement; authors can delete their own articles within 10 minutes.",
+        a23="Partial. One-way notifications to Slack via webhook only.",
+        a26="Partial. ISO 27001 since 2026-06-18; no SOC 2.",
+        a27="Partial. Hosting in Germany; Zammad AI hosted in the EU; backup location not stated.",
+        a29="Unknown. Priced per agent; no explicit statement that customers are free.",
+        ai="Zammad AI about EUR 0.03 per AI call (prepaid); Professional v2 and up.",
+        extra="Self-hosted support plans EUR 2,999 / 5,999 / 9,999 per year.",
+        trial="Yes, 30 days (Professional v2, 3 agents)."),
+    "otrs": dict(products="OTRS (managed SaaS or on-premises; site footer: EasyVista-OTRS GmbH).",
+        one_tool="Yes per vendor (filter Q1 Yes).",
+        a10="Partial. Approvals are modelled in Process Management; routing to the requester's manager not documented.",
+        a17="Partial. History logs who and when; no immutability statement; history can be anonymized.",
+        a23="Partial. No Slack or Zapier app; only a custom build on the API (Advanced package).",
+        a26="Partial. 'Currently does not maintain ISO 27001 or SOC 2 certification'; only data-centre operators are certified.",
+        a27="Partial. Hosting in Germany by default, AI in the EU; backup location not stated; support sub-processors outside the EU.",
+        a29="Unknown. Priced per licensed user; no statement on requesters.",
+        ai="Included in Advanced and Pro; AI credits on Starter (price not public).",
+        extra="No public prices; annual billing with a 1-year minimum (2024 terms).",
+        trial="Yes, on request; length not stated."),
+    "ninjaone": dict(products="NinjaOne Ticketing (module of the NinjaOne endpoint platform).",
+        one_tool="Yes per vendor: 'Both' internal IT teams and MSPs serving clients; built around managed devices.",
+        a10="Partial. Approvals (any/all, by email) logged on the ticket; ordered steps not documented.",
+        a17="Partial. System activity log per ticket; comment editing on by default.",
+        a23="Partial. Slack notifications only.",
+        a26="Meets. ISO 27001 and SOC 2.",
+        a27="Partial. EU instance exists; country, backups and AI region not stated.",
+        a29="Unknown. No statement that requesters are free.",
+        ai="Katana AI in early access; no price.",
+        extra="Priced per managed device, quote only; not stated whether Ticketing can be bought without RMM.",
+        trial="Yes, 14 days, no card."),
+}
+EXTRA_SUMMARY = {
+    "unthread": ("One of two tools that fully meet two-way Slack (#23). MCP server with write tools. Most Platform Musts met among the extended-scan tools.",
+                 "EU data residency only on Enterprise (US by default). No ISO 27001. SSO only on Business. Few IT Musts met."),
+    "deskpro": ("ISO 27001 and SOC 2; EU hosting by default; requesters and approvers free; own Slack app; SSO and 2FA in every plan.",
+                "No MCP server (#21 Partial). Approval chaining not in current docs. Many Musts only partly met (#4, #8, #11, #12, #13, #17, #18, #20, #22, #28)."),
+    "suptask": ("One of two tools that fully meet two-way Slack (#23). Sequential approvals (#10). Requesters free. Hosted in Ireland.",
+                "AI features beta or Custom-only; MCP read-only; Google SSO not documented; no ISO 27001; ticket messages partly stored in Slack."),
+    "helpspot": ("One all-inclusive plan; MCP server with write tools (generally available); customers free; EU cloud in Frankfurt.",
+                 "No own ISO 27001 or SOC 2 (SOC 2 in progress). No approvals found. No native Slack. No chat or AI assistant for requesters (#30)."),
+    "zammad": ("ISO 27001, hosting in Germany, prices in EUR. One product for internal desks and customer support.",
+               "No native approvals (#10). No SOC 2. Slack one-way only. Many Musts only partly met (#8, #11, #15, #16, #17, #21, #28)."),
+    "otrs": ("Vendor MCP server with write tools; process management for workflows; EU hosting.",
+             "No own ISO 27001 or SOC 2 (Notes #13). No public prices. No Slack app. No IT Musts fully met."),
+    "ninjaone": ("Ticketing inside an endpoint-management platform; ISO 27001 and SOC 2; EU instance.",
+                 "Priced per device, not per agent. AI in early access, no AI routing. No recurring tickets (#42). Few IT Musts met."),
+}
+ASPECTS = {**ASPECTS, **EXTRA_ASPECTS}
+PLAN_USED = {**PLAN_USED, **EXTRA_PLAN_USED}
+PRICING = PRICING + EXTRA_PRICING
+FULL_SUMMARY.update(EXTRA_SUMMARY)
 
 HDR_FILL, SEC_FILL = PatternFill("solid", fgColor="1F3864"), PatternFill("solid", fgColor="D9E1F2")
 HDR_FONT = Font(name="Arial", size=10, bold=True, color="FFFFFF")
@@ -196,7 +327,7 @@ def main(req_path, out_path):
     pr["A2"] = ("Read from the official pricing pages from a non-EU location, so currencies differ. Tiered prices were "
                 "read at 11 agents where the page has a calculator. Overview converts to EUR with ECB reference rates.")
     header(pr, 4, ["Tool", "Product", "Plan", "Price per agent / month", "Currency", "Billing",
-                   "Agent count used on page", "Notes", "Source"], [30, 28, 26, 14, 10, 22, 14, 50, 50])
+                   "Agent count used on page", "Notes", "Source", "Minimum billed agents"], [30, 28, 26, 14, 10, 22, 14, 50, 50, 12])
     names = {t[0]: t[1] for t in TOOLS}
     plan_row = {}
     for i, (key, product, plan, price, cur, bill, agents, notes, src) in enumerate(PRICING):
@@ -205,6 +336,8 @@ def main(req_path, out_path):
             pr.cell(row=r, column=c, value=v)
         if isinstance(price, (int, float)):
             pr.cell(row=r, column=4).number_format = "#,##0.00"
+        if (key, plan) in MIN_BILLED:
+            pr.cell(row=r, column=10, value=MIN_BILLED[(key, plan)])
         if PLAN_USED[key] == plan and key not in plan_row:
             plan_row[key] = r
     finish(pr)
@@ -212,7 +345,7 @@ def main(req_path, out_path):
 
     # ---------------- Overview (one card per tool) ----------------
     ov = wb.create_sheet("Overview", 0)
-    ov["A1"] = "Helpdesk tool market review: 9 tools on all 59 requirements"
+    ov["A1"] = f"Helpdesk tool market review: {len(TOOLS)} tools on all 59 requirements"
     ov["A1"].font = TITLE
     ov["A2"] = (f"Checked {CHECKED}. One column per tool. Unknown means no evidence was found, not that a feature is missing. "
                 "Blue text on yellow = input you can change.")
@@ -233,7 +366,8 @@ def main(req_path, out_path):
     rng = lambda col: f"{M}${col}${first}:${col}${last}"  # noqa: E731
     trng = lambda col: f"{M}{col}${first}:{col}${last}"  # noqa: E731
     rows = []  # (label, kind, payload)
-    rows += [("Products evaluated", "text", "products"), ("One tool for internal + external?", "text", "one_tool")]
+    rows += [("Products evaluated", "text", "products"), ("How it was selected", "origin", None),
+             ("One tool for internal + external?", "text", "one_tool")]
     for prio, total_label in (("Must have", "Must have (29 requirements)"), ("Nice to have", "Nice to have (30 requirements)")):
         rows.append((total_label, "section", None))
         for v in VERDICTS + [NA]:
@@ -246,7 +380,7 @@ def main(req_path, out_path):
         rows.append((a, "area", col))
     rows.append(("Budget", "section", None))
     rows += [("Plan used", "price", "C"), ("Price per agent / month", "price", "D"), ("Currency", "price", "E"),
-             ("Billing", "price", "F"), ("Estimated monthly cost (price x agents)", "monthly", None),
+             ("Billing", "price", "F"), ("Estimated monthly cost (price x agents, at least the vendor minimum)", "monthly", None),
              ("Estimated annual cost (monthly x 12)", "annual", None),
              ("Estimated monthly cost in EUR (ECB rate)", "eur", None), ("Within monthly budget?", "budget", None),
              ("Extra costs (one-time, add-ons)", "text", "extra"), ("Free trial", "text", "trial")]
@@ -269,6 +403,9 @@ def main(req_path, out_path):
             ref = f"{get_column_letter(2 + j)}"
             if kind == "text":
                 cell.value = ASPECTS[key][payload]
+            elif kind == "origin":
+                cell.value = ("Extended market scan (quick filter, Q1 = Yes)" if key in SCAN_KEYS
+                              else "Initial list (brief, requirements sheet Notes #15, reviewer's suggestions)")
             elif kind == "summary":
                 cell.value = FULL_SUMMARY[key][payload]
             elif kind == "count":
@@ -293,14 +430,15 @@ def main(req_path, out_path):
                     cell.number_format = "#,##0.00"
             elif kind == "monthly":
                 p = f"{ref}{rowno['Price per agent / month']}"
-                cell.value = f'=IF(ISNUMBER({p}),{p}*$B$4,"Not public")'
+                mn = f"Pricing!J{plan_row[key]}"
+                cell.value = f'=IF(ISNUMBER({p}),{p}*MAX($B$4,IF(ISNUMBER({mn}),{mn},0)),"Not public")'
                 cell.number_format = "#,##0"
             elif kind == "annual":
-                m = f"{ref}{rowno['Estimated monthly cost (price x agents)']}"
+                m = f"{ref}{rowno['Estimated monthly cost (price x agents, at least the vendor minimum)']}"
                 cell.value = f'=IF(ISNUMBER({m}),{m}*12,"Not public")'
                 cell.number_format = "#,##0"
             elif kind == "eur":
-                m = f"{ref}{rowno['Estimated monthly cost (price x agents)']}"
+                m = f"{ref}{rowno['Estimated monthly cost (price x agents, at least the vendor minimum)']}"
                 cur = f"{ref}{rowno['Currency']}"
                 cell.value = (f'=IF(ISNUMBER({m}),IF({cur}="EUR",{m},IF({cur}="USD",{m}/$B$6,'
                               f'IF({cur}="GBP",{m}/$B$7,"No rate"))),"Not public")')
@@ -418,6 +556,7 @@ def main(req_path, out_path):
     items = [
         ("Requirements source", f"Google Sheet 'Helpdesk Tool requirements' ({REQ_SHEET_URL}), version modified 2026-11-13, read {CHECKED}. 59 requirements: 29 Must have, 30 Nice to have."),
         ("Scope", "Every tool checked on all 59 requirements: 16 knockout (K.O.) criteria first, then the other 43." + (f" Not assessed on the 43: {', '.join(not_assessed)}." if not_assessed else "")),
+        ("Tool selection", "9 tools from the initial list (brief, requirements sheet Notes #15, reviewer's suggestions), plus 7 from an extended market scan: 35 names found in category lists, filtered on official pages with 4 questions (one product for internal + external, own ISO 27001 or SOC 2, EU hosting, Slack). 24 passed, 11 failed; the 7 with Q1 = Yes got the full assessment (user decision). See the Market scan tab."),
         ("K.O. criteria", "Rule A: Must have for at least 2 areas. Rule B: named as key or eliminating in the Notes tab. Rule C: #23, #27, #29 added by user decision. No tool is excluded (user decision)."),
         ("Verdict: Meets", "Every part of the requirement has direct evidence on an official vendor page."),
         ("Verdict: Partial", "Some parts have evidence; other parts are missing, limited, not documented or not verified."),
@@ -429,7 +568,7 @@ def main(req_path, out_path):
         ("#26 rule", "Meets = ISO 27001 and SOC 2 confirmed. NIS2-specific documents were not found publicly for any vendor (ServiceNow names them behind an NDA portal)."),
         ("#29 rule", "Meets = official statement that requesters are free or unlimited. Partial = a requester-side role needs a paid seat. Unknown = no explicit statement."),
         ("Area weighting", "User decision: Platform and IT requirements weigh more (People and Finance use Aboard today; IT has no tool). Operations weight not decided."),
-        ("Budget", "Budget is not known (Overview B5 is left empty). Costs are estimated as price per agent x agents (B4, the user's assumption of 11). Tiered prices were read at 11 agents."),
+        ("Budget", "Budget is not known (Overview B5 is left empty). Costs are estimated as price per agent x the larger of agents (B4, the user's assumption of 11) and the vendor's minimum or tier (Pricing column J). Tiered prices were read at 11 agents. HelpSpot's tier is fixed at 15 agents; change it if B4 goes above 15."),
         ("Currency conversion", f"EUR estimates use ECB euro reference rates of 2026-11-18 (USD {USD_PER_EUR}, GBP {GBP_PER_EUR} per EUR), {ECB_URL}. Vendors' own EUR price lists may differ."),
         ("Sources", "Official vendor pages (pricing, help centres, documentation, developer docs, marketplaces, trust pages) and official integration pages of the other product, read with a headless browser on 2026-11-18."),
         ("ServiceNow", "servicenow.com blocks automated browsing. Pricing, compliance and EU pages were provided by the user as PDF prints; feature documentation could not be read, so many verdicts are Unknown."),
