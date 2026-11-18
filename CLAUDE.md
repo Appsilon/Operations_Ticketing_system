@@ -56,18 +56,22 @@ Narzędzia wymienione w rozmowach (lista otwarta, można dodawać inne):
 3. Budżet nieznany i nie ustalamy go (to decyzja poza naszym zadaniem). Zapisujemy ceny: plan, cena za agenta, okres rozliczenia, waluta, data sprawdzenia, link.
 4. Liczba agentów to założenie użytkownika, nie dane: Platform ok. 6 (arkusz, Notes #10), Finance 1, People 2, IT 1, Operations 1, razem ok. 11. Używać tylko do orientacyjnej sumy i zawsze oznaczać jako założenie.
 5. HubSpot jest używany do sprzedaży i marketingu.
-6. Lista narzędzi do przeglądu (zaakceptowana): Atlassian (JSM / Service Collection), Freshworks, Zendesk, HubSpot Service Hub, Zoho Desk, HaloITSM/HaloPSA, TOPdesk. ServiceNow: nierozstrzygnięte.
+6. Lista narzędzi do przeglądu (zaakceptowana): Atlassian (JSM / Service Collection), Freshworks, Zendesk, HubSpot Service Hub, Zoho Desk, HaloITSM/HaloPSA, TOPdesk, ServiceNow. ServiceNow blokuje automatyczną przeglądarkę – użytkownik kopiuje treść stron z URL-i, które mu podamy.
 7. Ile narzędzi trafi później do testów – nie nasza decyzja. Cel: racjonalny przegląd, z którego team wybierze. Idealny wynik, jeśli się da: 3 do focus grup + 2 do pilotu u klientów.
 8. Wynik budujemy tutaj i zapisujemy w repo. Google Sheets tworzymy dopiero na prośbę użytkownika.
 9. Termin: praca trwa do końca bieżącego tygodnia (16–22.11.2026), nawet jeśli nie skończymy.
-10. Kryteria K.O.: propozycja w `analysis/01_kryteria_KO.md` – czeka na akceptację użytkownika.
+10. Kryteria K.O. (zaakceptowane 2026-11-18): 16 kryteriów w `analysis/01_ko_criteria.md` = 13 z reguł A+B + #23, #27, #29. Narzędzie, które odpada tylko na #23/#27/#29, a spełnia resztę, oznaczamy flagą i nie usuwamy po cichu.
+11. Waga obszarów (decyzja użytkownika): wymagania Platform i IT są ważniejsze, bo People i Finance pracują dziś na swoich narzędziach (arkusz: Aboard – Notes #18, #30), IT nie ma narzędzia (arkusz: pingi na Slacku – Notes #25), Platform – wg użytkownika nie ma narzędzia (arkusz tego nie opisuje). Waga Operations: nieustalona.
+12. Każde narzędzie dostaje kartę: wynik K.O., ile wymagań spełnia i dla kogo (Must/Nice per obszar), cena, trial, źródła.
+13. Język wyników (pliki w `analysis/`): angielski. `CLAUDE.md` i `CHANGELOG.md` po polsku.
 
 ## Dostęp do sieci (stan na 2026-11-18)
 
-1. Strony vendorów: działa `tools/pw_text.js` (Chromium/Playwright przez proxy) oraz curl z nagłówkiem User-Agent.
+1. Strony vendorów: używać `tools/pw_text.js` (Chromium/Playwright przez proxy).
 2. Narzędzie WebFetch nie działa (ENOTFOUND) – nie używać.
 3. WebSearch działa – tylko do znajdowania stron; źródła wtórne (blogi, Capterra itp.) zawsze oznaczać jako wtórne.
 4. servicenow.com blokuje przeglądarkę headless („Access Denied”).
+5. Nie obchodzić blokad stron (zabezpieczenia antybotowe, podmiana User-Agent itp.). Strona zablokowana → zapisać URL i poprosić użytkownika o treść.
 
 ## Proces
 
