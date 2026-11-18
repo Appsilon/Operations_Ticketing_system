@@ -62,7 +62,10 @@ def parse_table(path, section_kw, section_filter, expected):
             cells = [c.strip() for c in line.strip().strip("|").split("|")]
             raw = cells[2].replace("*", "").strip()
             verdict = next(v for v in VERDICTS if raw.startswith(v))
-            rows[int(cells[0])] = dict(verdict=verdict, note=clean(raw[len(verdict):].strip(" ()")),
+            note = raw[len(verdict):].strip()
+            if note.startswith("(") and note.endswith(")"):
+                note = note[1:-1]
+            rows[int(cells[0])] = dict(verdict=verdict, note=clean(note.lstrip(" .:;-")),
                                        plan=clean(cells[3]), evidence=clean(cells[4]), source=clean(cells[5]))
     assert sorted(rows) == sorted(expected), f"{path.name}: got {sorted(rows)}"
     return rows
