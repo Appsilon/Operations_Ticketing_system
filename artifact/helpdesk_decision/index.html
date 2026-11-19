@@ -64,7 +64,6 @@ p{margin:0}
 .muted{color:var(--text-3)}
 .small{font-size:13px}
 .lbl{display:block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:2px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 /* nav */
 .nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
@@ -75,21 +74,25 @@ p{margin:0}
 .nav a:hover{background:var(--tint);color:var(--text)}
 
 /* hero */
-.hero{padding:36px 0 8px}
+.hero{padding:32px 0 4px}
 .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
-.hero h1{margin:8px 0 10px}
+.hero h1{margin:8px 0 8px}
 .lede{font-size:17px;color:var(--text-2);max-width:760px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0 8px}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--shadow)}
-.stat b{display:block;font-family:var(--serif);font-size:30px;line-height:1.1}
-.stat span{color:var(--text-2);font-size:13.5px}
-@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
-.assume{display:flex;gap:8px;align-items:flex-start;margin-top:12px;font-size:13.5px;color:var(--text-2)}
-.assume .tag{flex:none}
+.lede b{color:var(--text)}
+.primer{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+@media (max-width:860px){.primer{grid-template-columns:1fr}}
+.primer .panel{padding:14px 16px}
+.primer h3{font-size:17px;margin-bottom:4px}
+.primer p{font-size:14.5px;color:var(--text-2)}
+.vlist{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;align-items:center;font-size:14px;color:var(--text-2);margin-top:4px}
+.vlist .v{justify-self:start}
+.rules{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--text-2)}
+.rules b{color:var(--accent-ink)}
+.assume{margin-top:10px;font-size:13.5px;color:var(--text-2)}
 
-section{padding:40px 0 8px}
-.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;margin-bottom:6px}
-.sec-sub{color:var(--text-2);max-width:820px;margin-bottom:18px}
+section{padding:36px 0 4px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;margin-bottom:4px}
+.sec-sub{color:var(--text-2);max-width:820px;margin-bottom:14px;font-size:14.5px}
 
 /* tags & chips */
 .tag{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;line-height:1;padding:4px 7px;border-radius:999px;background:var(--haze);color:var(--text-2);white-space:nowrap}
@@ -101,6 +104,7 @@ section{padding:40px 0 8px}
 .v{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;line-height:1;padding:5px 8px;border-radius:6px;white-space:nowrap}
 .v.M{background:var(--m-bg);color:var(--m-fg)} .v.P{background:var(--p-bg);color:var(--p-fg)}
 .v.X{background:var(--x-bg);color:var(--x-fg)} .v.U{background:var(--u-bg);color:var(--u-fg)}
+.half{display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;background:linear-gradient(90deg,currentColor 50%,transparent 50%);vertical-align:-1px}
 .ac{display:inline-block;font-size:11.5px;font-weight:600;line-height:1;padding:4px 6px;border-radius:4px;white-space:nowrap}
 .ac.M{background:var(--must-bg);color:var(--must)}
 .ac.N{box-shadow:inset 0 0 0 1px var(--border-2);color:var(--text-2)}
@@ -109,45 +113,38 @@ section{padding:40px 0 8px}
 .bar{display:flex;height:10px;border-radius:999px;overflow:hidden;background:var(--haze);min-width:60px}
 .bar i{display:block;height:100%}
 .bar .sM{background:var(--m)} .bar .sP{background:var(--p)} .bar .sX{background:var(--x)} .bar .sU{background:var(--u)}
-.bar+.bar-n{margin-top:4px}
-.bar-n{font-size:12.5px;color:var(--text-3);white-space:nowrap}
+.bar-n{font-size:12.5px;color:var(--text-3);white-space:nowrap;margin-top:4px}
 .bar-n b{font-size:14px;color:var(--text)}
-.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--text-2)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--text-2);margin:0 2px 10px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
 
 /* recommendation */
 .recs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 @media (max-width:900px){.recs{grid-template-columns:1fr}}
-.rcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.rcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
 .rcard-top{display:flex;align-items:center;gap:10px}
 .rank-b{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:700;font-size:15px}
 .rcard h3{font-size:20px}
-.rcard .vend{font-size:13px;color:var(--text-3)}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.kpi{background:var(--tint);border-radius:8px;padding:8px 10px}
+.kpi{background:var(--tint);border-radius:8px;padding:7px 10px}
 .kpi b{display:block;font-size:18px;line-height:1.2}
 .kpi span{font-size:12px;color:var(--text-2)}
-.rcard .why{font-size:14.5px}
-.confirm{font-size:14px;background:var(--p-bg);color:var(--text);border-radius:8px;padding:10px 12px}
+.rcard .why{font-size:14px;color:var(--text-2)}
+.confirm{font-size:13.5px;background:var(--p-bg);border-radius:8px;padding:8px 10px}
 .confirm .lbl{color:var(--p-fg)}
 .rcard .go{margin-top:auto;align-self:flex-start}
-.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border-2);background:var(--surface);border-radius:8px;padding:7px 12px;font-weight:600;font-size:14px;cursor:pointer;color:var(--text);transition:background .15s var(--ease),border-color .15s var(--ease)}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border-2);background:var(--surface);border-radius:8px;padding:6px 12px;font-weight:600;font-size:14px;cursor:pointer;color:var(--text);transition:background .15s var(--ease),border-color .15s var(--ease)}
 .btn:hover{background:var(--tint);border-color:var(--accent-line)}
 .btn.link{border:0;background:none;padding:0;color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;font-weight:600}
-.after-recs{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:14px;margin-top:14px}
-@media (max-width:900px){.after-recs{grid-template-columns:1fr}}
 .panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
-.panel h3{font-size:16px;margin-bottom:6px;font-family:var(--sans)}
-.panel p,.panel li{font-size:14px;color:var(--text-2)}
-.panel p+p{margin-top:6px}
-.half{display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;background:linear-gradient(90deg,currentColor 50%,transparent 50%);vertical-align:-1px}
-.panel ul{margin:0;padding-left:18px}
-.reqbtn{border:0;background:var(--accent-soft);color:var(--accent-ink);font-weight:700;font-size:13px;padding:2px 6px;border-radius:4px;cursor:pointer}
+.next{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--text-2)}
+.next b{color:var(--text)}
+.reqbtn{border:0;background:var(--accent-soft);color:var(--accent-ink);font-weight:700;font-size:13px;padding:2px 6px;border-radius:4px;cursor:pointer;margin:1px 0}
 .reqbtn:hover{background:var(--accent);color:#fff}
 
 /* toolbar */
-.toolbar{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-end;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.toolbar{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-end;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px}
 .ctl{display:flex;flex-direction:column;gap:4px;min-width:0}
 .seg{display:inline-flex;flex-wrap:wrap;background:var(--haze);border-radius:8px;padding:3px;gap:2px}
 .seg button{border:0;background:none;padding:5px 10px;border-radius:6px;font-size:13.5px;font-weight:600;color:var(--text-2);cursor:pointer;white-space:nowrap}
@@ -157,10 +154,10 @@ section{padding:40px 0 8px}
 .stepper button:hover{background:var(--tint)}
 .stepper input{width:44px;height:32px;border:0;border-left:1px solid var(--border);border-right:1px solid var(--border);text-align:center;font:600 15px var(--sans);background:var(--surface);color:var(--text);-moz-appearance:textfield}
 .stepper input::-webkit-inner-spin-button,.stepper input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
-.lens-note{font-size:13px;color:var(--text-2);margin:2px 2px 12px}
+.lens-note{font-size:13px;color:var(--text-2);margin:2px 2px 8px}
 
 /* candidate list */
-.cols,.cand-head{display:grid;grid-template-columns:34px minmax(180px,1.6fr) minmax(120px,1fr) minmax(110px,.8fr) 78px 104px 20px;gap:14px;align-items:center}
+.cols,.cand-head{display:grid;grid-template-columns:34px minmax(180px,1.6fr) minmax(120px,1fr) minmax(110px,.8fr) 78px 112px 20px;gap:14px;align-items:center}
 .cols{padding:0 16px 6px;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3)}
 .cols .r{text-align:right}
 .cand{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;box-shadow:var(--shadow);transition:border-color .15s var(--ease)}
@@ -172,7 +169,6 @@ section{padding:40px 0 8px}
 .cand.rec .rank{color:var(--accent-ink)}
 .who{min-width:0}
 .who .nm{display:block;font-weight:700;font-size:16px;line-height:1.25}
-.who .sub{display:block;font-size:12.5px;color:var(--text-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .who .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
 .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .num b{font-size:16px}
@@ -195,46 +191,47 @@ section{padding:40px 0 8px}
 
 /* deep dive */
 .dd{border-top:1px solid var(--border);padding:16px}
-.caveat{background:var(--p-bg);border-radius:8px;padding:10px 12px;font-size:14px;margin-bottom:14px}
-.dd-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:16px}
-@media (max-width:900px){.dd-grid{grid-template-columns:1fr}}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;align-content:start}
-.facts>div{min-width:0;font-size:14px}
-.facts .wide{grid-column:1/-1}
+.caveat{background:var(--p-bg);border-radius:8px;padding:8px 12px;font-size:13.5px;margin-bottom:12px}
+.dd-top{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 16px;margin-bottom:14px;font-size:14px}
+@media (max-width:640px){.dd-top{grid-template-columns:1fr}}
 .costbig{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.2}
-@media (max-width:560px){.facts{grid-template-columns:1fr}}
+.dd-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:start}
+@media (max-width:900px){.dd-grid{grid-template-columns:1fr}}
+.dd-left{display:flex;flex-direction:column;gap:12px;font-size:14px;min-width:0}
+.sg{border-left:3px solid var(--m);padding:1px 0 1px 12px}
+.sg.gaps{border-color:var(--x)}
 .areas-card{background:var(--tint);border-radius:10px;padding:12px 14px}
-.areas-card h4{margin:0 0 8px;font-size:14px}
+.areas-card h4{margin:0 0 6px;font-size:14px}
 .arow{display:grid;grid-template-columns:minmax(0,1.2fr) 1fr 1fr;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--border)}
 .arow:first-of-type{border-top:0}
 .arow .an{font-weight:600;font-size:14px;line-height:1.25}
 .arow .an small{display:block;font-weight:400;color:var(--text-3);font-size:12px}
 .arow .bar{height:8px}
-.sg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
-@media (max-width:700px){.sg{grid-template-columns:1fr}}
-.sg>div{border-left:3px solid var(--m);padding:2px 0 2px 12px;font-size:14px}
-.sg>div.gaps{border-color:var(--x)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px;margin:0}
+.kv dt{color:var(--text-3);font-weight:600}
+.kv dd{margin:0;min-width:0}
+.kv ol{padding-left:18px}
 
-.rq-tools{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;margin:6px 0 10px}
-.search{height:34px;border:1px solid var(--border-2);border-radius:8px;padding:0 10px;font:14px var(--sans);background:var(--surface);color:var(--text);min-width:180px}
+.rq-tools{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;margin:16px 0 4px}
+.search{height:34px;border:1px solid var(--border-2);border-radius:8px;padding:0 10px;font:14px var(--sans);background:var(--surface);color:var(--text);min-width:170px}
 select.sel{height:34px;border:1px solid var(--border-2);border-radius:8px;padding:0 8px;font:14px var(--sans);background:var(--surface);color:var(--text)}
 .rq-count{font-size:13px;color:var(--text-3);margin-left:auto}
-.rq-group{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);padding:12px 2px 6px}
+details.rq-grp>summary{cursor:pointer;list-style:none;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);padding:12px 2px 6px;display:flex;align-items:center;gap:8px}
+details.rq-grp>summary::-webkit-details-marker{display:none}
+details.rq-grp>summary::before,details.more>summary::before{content:"";width:7px;height:7px;border-right:2px solid var(--text-3);border-bottom:2px solid var(--text-3);transform:rotate(-45deg);transition:transform .15s var(--ease);flex:none}
+details.rq-grp[open]>summary::before,details.more[open]>summary::before{transform:rotate(45deg)}
 .rq{border-top:1px solid var(--border)}
 .rq-head{width:100%;display:grid;grid-template-columns:118px 38px minmax(0,1fr) auto;gap:10px;align-items:center;border:0;background:none;text-align:left;padding:8px 4px;cursor:pointer;border-radius:6px}
 .rq-head:hover{background:var(--tint)}
 .rq-no{font-weight:700;color:var(--text-3);font-variant-numeric:tabular-nums}
 .rq-name{font-weight:600;min-width:0}
-.rq-name .grp{display:block;font-weight:400;font-size:12px;color:var(--text-3)}
 .rq-areas{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
-.rq-note{grid-column:3/-1;font-size:13px;color:var(--text-2);margin-top:-2px}
 @media (max-width:700px){
   .rq-head{grid-template-columns:auto 1fr;gap:6px 8px}
   .rq-head .rq-no{order:-1}
   .rq-head .v{justify-self:start}
   .rq-head .rq-name{grid-column:1/-1}
   .rq-head .rq-areas{grid-column:1/-1;justify-content:flex-start}
-  .rq-note{grid-column:1/-1}
 }
 .rq-body{padding:4px 4px 16px 4px}
 .ev-wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:16px}
@@ -246,19 +243,16 @@ select.sel{height:34px;border:1px solid var(--border-2);border-radius:8px;paddin
 .ev{display:flex;flex-direction:column;gap:10px;font-size:14px;min-width:0}
 .ev-quote{margin:0;border-left:3px solid var(--accent);background:var(--tint);padding:10px 12px;border-radius:0 8px 8px 0;font-size:14px;overflow-wrap:anywhere}
 .ev-src{overflow-wrap:anywhere}
-.ev-actions{display:flex;flex-wrap:wrap;gap:10px}
-details.more{margin-top:12px;border:1px solid var(--border);border-radius:8px;background:var(--surface)}
-details.more>summary{cursor:pointer;padding:10px 12px;font-weight:600;font-size:14px;list-style:none;display:flex;align-items:center;gap:8px}
+details.more{margin-top:10px;border:1px solid var(--border);border-radius:8px;background:var(--surface)}
+details.more>summary{cursor:pointer;padding:9px 12px;font-weight:600;font-size:14px;list-style:none;display:flex;align-items:center;gap:8px}
 details.more>summary::-webkit-details-marker{display:none}
-details.more>summary::before{content:"";width:7px;height:7px;border-right:2px solid var(--text-3);border-bottom:2px solid var(--text-3);transform:rotate(-45deg);transition:transform .15s var(--ease);flex:none}
-details.more[open]>summary::before{transform:rotate(45deg)}
 details.more .inner{padding:0 14px 12px}
 details.more ol{margin:0;padding-left:20px;font-size:14px;display:flex;flex-direction:column;gap:6px;overflow-wrap:anywhere}
-.files{margin-top:12px;font-size:13px;color:var(--text-3)}
+.files{margin-top:10px;font-size:13px;color:var(--text-3)}
 
 /* K.O. matrix */
-.ko-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
-@media (max-width:820px){.ko-sum{grid-template-columns:1fr}}
+.ko-line{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text-2);margin-bottom:12px}
+.ko-line b{color:var(--text)}
 .scroll{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface);-webkit-overflow-scrolling:touch}
 table.mx{border-collapse:separate;border-spacing:0;font-size:13.5px;min-width:100%}
 .mx th,.mx td{padding:0;border-bottom:1px solid var(--border)}
@@ -280,7 +274,7 @@ table.mx{border-collapse:separate;border-spacing:0;font-size:13.5px;min-width:10
 .mx tfoot td,.mx tfoot th{border-bottom:0;padding:8px 0;font-weight:700}
 .mx tfoot .crit{padding:8px 12px;font-size:13px}
 
-/* scan table */
+/* method: scan + rules */
 table.tbl{border-collapse:collapse;width:100%;font-size:13.5px}
 .tbl th{text-align:left;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);padding:8px 10px;border-bottom:1px solid var(--border);white-space:nowrap;background:var(--surface);position:sticky;top:0}
 .tbl td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
@@ -289,18 +283,17 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13.5px}
 .q{display:inline-block;min-width:22px;text-align:center;font-weight:700;font-size:12px;padding:3px 5px;border-radius:4px}
 .q.Yes{background:var(--m-bg);color:var(--m-fg)} .q.Partial{background:var(--p-bg);color:var(--p-fg)}
 .q.No{background:var(--x-bg);color:var(--x-fg)} .q.Unknown{background:var(--u-bg);color:var(--u-fg)}
-.funnel{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:4px 0 16px}
-.fstep{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;min-width:150px;flex:1}
-.fstep b{font-family:var(--serif);font-size:24px;display:block;line-height:1.1}
+.funnel{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:4px 0 12px}
+.fstep{background:var(--tint);border-radius:10px;padding:8px 12px;min-width:110px;flex:1}
+.fstep b{font-family:var(--serif);font-size:22px;display:block;line-height:1.1}
 .fstep span{font-size:13px;color:var(--text-2)}
 .farrow{align-self:center;color:var(--text-3);font-size:18px}
 @media (max-width:700px){.farrow{display:none}.fstep{min-width:calc(50% - 4px)}}
-
-/* method */
-.method{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.method{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
 @media (max-width:820px){.method{grid-template-columns:1fr}}
-.method ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--text-2)}
-footer{padding:32px 0 calc(40px + env(safe-area-inset-bottom));color:var(--text-3);font-size:13px}
+.method h3{font-family:var(--sans);font-size:15px;margin-bottom:6px}
+.method ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:var(--text-2)}
+footer{padding:28px 0 calc(36px + env(safe-area-inset-bottom));color:var(--text-3);font-size:13px}
 
 /* dialog */
 dialog#dlg{width:min(920px,calc(100vw - 24px));max-height:calc(100dvh - 32px);padding:0;border:1px solid var(--border);border-radius:14px;background:var(--surface);color:var(--text);box-shadow:var(--shadow-2)}
@@ -327,64 +320,58 @@ details.cmp.focus{background:var(--accent-soft);border-radius:8px}
 
 <nav class="nav" aria-label="Sections"><div class="wrap">
   <span class="brand">Helpdesk tool decision</span>
-  <a href="#decision">Decision</a><a href="#candidates">All 16 candidates</a><a href="#ko">K.O. view</a><a href="#scan">Market scan</a><a href="#method">Method</a>
+  <a href="#decision">Decision</a><a href="#candidates">Candidates</a><a href="#ko">K.O.</a><a href="#method">Method</a>
 </div></nav>
 
 <main>
 <div class="wrap">
   <header class="hero">
-    <div class="eyebrow">Operations · tool review · <span id="h-date"></span></div>
+    <div class="eyebrow">Operations · evidence checked <span id="h-date"></span></div>
     <h1>One helpdesk for internal requests and client support</h1>
     <p class="lede" id="h-lede"></p>
-    <div class="stats" id="h-stats"></div>
-    <p class="assume"><span class="tag warn">Assumption</span><span id="h-assume"></span></p>
+    <div class="primer" id="primer"></div>
+    <p class="assume" id="h-assume"></p>
   </header>
 
   <section id="decision" aria-labelledby="t-dec">
-    <div class="sec-head"><h2 id="t-dec">Recommendation: 3 tools for the focus groups</h2></div>
-    <p class="sec-sub">Ranked by: no knock-out (K.O.) failure, then Must haves of Platform and IT met, then Must haves of Operations met. The top 3 stays the same with equal weights for all areas. Which tools go to testing is the team's decision.</p>
+    <div class="sec-head"><h2 id="t-dec">Recommendation for the focus groups</h2></div>
+    <p class="sec-sub" id="dec-sub"></p>
     <div class="recs" id="recs"></div>
-    <div class="after-recs" id="after-recs"></div>
+    <ul class="next" id="next"></ul>
   </section>
 
   <section id="candidates" aria-labelledby="t-cand">
-    <div class="sec-head"><h2 id="t-cand">All 16 candidates on 59 requirements</h2></div>
-    <p class="sec-sub">Click a candidate for the deep dive: every requirement, its priority, which area raised it, the verdict and the quoted evidence with its source. Only “Meets” counts as met.</p>
+    <div class="sec-head"><h2 id="t-cand">All candidates</h2></div>
+    <p class="sec-sub">Click a row for every requirement, its priority, who raised it and the evidence.</p>
     <div class="toolbar">
-      <div class="ctl"><span class="lbl">Count requirements of</span><div class="seg" id="lens" role="group" aria-label="Area"></div></div>
-      <div class="ctl"><span class="lbl">Sort by</span><div class="seg" id="sort" role="group" aria-label="Sort"></div></div>
+      <div class="ctl"><span class="lbl">Area</span><div class="seg" id="lens" role="group" aria-label="Area"></div></div>
+      <div class="ctl"><span class="lbl">Sort</span><div class="seg" id="sort" role="group" aria-label="Sort"></div></div>
       <div class="ctl"><span class="lbl">Agents (assumption)</span>
         <div class="stepper"><button type="button" id="ag-dn" aria-label="Fewer agents">−</button><input id="ag" type="number" min="1" max="200" inputmode="numeric" aria-label="Number of agents"><button type="button" id="ag-up" aria-label="More agents">+</button></div>
       </div>
     </div>
     <p class="lens-note" id="lens-note"></p>
-    <div class="legend" style="margin:0 2px 12px"><span><i style="background:var(--m)"></i>Meets</span><span><i style="background:var(--p)"></i>Partial</span><span><i style="background:var(--x)"></i>Does not meet</span><span><i style="background:var(--u)"></i>Unknown (no evidence)</span><span><span class="ac M">Area</span> Must for that area</span><span><span class="ac N">Area</span> Nice to have</span></div>
-    <div class="cols" aria-hidden="true"><span>Rank</span><span>Candidate</span><span id="col-must">Must haves met</span><span id="col-nice">Nice to haves met</span><span class="r">Plat. + IT Musts</span><span class="r">Est. per month</span><span></span></div>
+    <div class="legend"><span><i style="background:var(--m)"></i>Meets</span><span><i style="background:var(--p)"></i>Partial</span><span><i style="background:var(--x)"></i>Does not meet</span><span><i style="background:var(--u)"></i>Unknown</span><span><span class="ac M">Area</span> Must</span><span><span class="ac N">Area</span> Nice</span></div>
+    <div class="cols" aria-hidden="true"><span>Rank</span><span>Candidate</span><span id="col-must">Must haves met</span><span id="col-nice">Nice to haves met</span><span class="r">Plat. + IT Musts</span><span class="r">Per month</span><span></span></div>
     <div id="list"></div>
-    <p class="small muted" style="margin:6px 2px 0">Estimates exclude VAT, add-ons and onboarding. * Tiered price: the per-agent price was read at 11 agents and may differ at other counts.</p>
+    <p class="small muted" style="margin:4px 2px 0">Excl. VAT, add-ons and onboarding. * Tiered price, read at 11 agents.</p>
   </section>
 
   <section id="ko" aria-labelledby="t-ko">
-    <div class="sec-head"><h2 id="t-ko">K.O. view: 16 criteria that can rule a tool out</h2></div>
-    <p class="sec-sub" id="ko-sub"></p>
-    <div class="ko-sum" id="ko-sum"></div>
+    <div class="sec-head"><h2 id="t-ko">K.O. criteria</h2></div>
+    <p class="sec-sub">Click a cell or criterion for the evidence. Tools right of the line fail a K.O.</p>
+    <div class="ko-line" id="ko-line"></div>
     <div class="scroll"><table class="mx" id="mx"></table></div>
-    <p class="small muted" style="margin-top:8px">Click a cell or a criterion to see the evidence for every tool. Columns follow the overall rank; tools after the line fail at least one K.O. criterion.</p>
-  </section>
-
-  <section id="scan" aria-labelledby="t-scan">
-    <div class="sec-head"><h2 id="t-scan">How the 16 were chosen</h2></div>
-    <p class="sec-sub" id="scan-sub"></p>
-    <div class="funnel" id="funnel"></div>
-    <details class="more"><summary id="scan-sum"></summary><div class="inner">
-      <p class="small muted" style="margin:0 0 10px" id="scan-q"></p>
-      <div class="scroll" style="max-height:520px;overflow:auto"><table class="tbl" id="scan-tbl"></table></div>
-    </div></details>
   </section>
 
   <section id="method" aria-labelledby="t-method">
-    <div class="sec-head"><h2 id="t-method">Method, sources and what is not decided</h2></div>
-    <div class="method" id="method-body"></div>
+    <div class="sec-head"><h2 id="t-method">Method</h2></div>
+    <details class="more"><summary>How the candidates were chosen</summary><div class="inner">
+      <div class="funnel" id="funnel"></div>
+      <p class="small muted" style="margin:0 0 10px" id="scan-q"></p>
+      <div class="scroll" style="max-height:520px;overflow:auto"><table class="tbl" id="scan-tbl"></table></div>
+    </div></details>
+    <details class="more"><summary>Rules, sources and open decisions</summary><div class="inner"><div class="method" id="method-body"></div></div></details>
   </section>
   <footer id="foot"></footer>
 </div>
@@ -408,7 +395,7 @@ const TOOLS = D.tools, TK = {}; TOOLS.forEach(t => TK[t.key] = t);
 const KO = REQ.filter(r => r.ko);
 const isPIT = r => r.areas[0] === 'M' || r.areas[2] === 'M';
 const isOPS = r => r.areas[1] === 'M';
-const NM = REQ.filter(r => r.prio === 'M').length, NN = REQ.length - NM;
+const NM = REQ.filter(r => r.prio === 'M').length;
 
 function count(t, pred) { const c = {M:0,P:0,X:0,U:0,n:0}; REQ.forEach((r, i) => { if (pred(r)) { c[t.v[i]]++; c.n++; } }); return c; }
 TOOLS.forEach(t => {
@@ -420,6 +407,7 @@ TOOLS.forEach(t => {
 const RANKED = [...TOOLS].sort((a, b) => (a.koFail.length > 0) - (b.koFail.length > 0) || b.pit.M - a.pit.M || b.ops.M - a.ops.M || b.must.M - a.must.M || a.name.localeCompare(b.name));
 RANKED.forEach((t, i) => t.rank = i + 1);
 const NPIT = REQ.filter(isPIT).length, NOPS = REQ.filter(isOPS).length;
+const FAILS = RANKED.filter(t => t.koFail.length), FAILNOS = [...new Set(FAILS.flatMap(t => t.koFail))];
 
 const S = {lens: -1, sort: 'rank', agents: D.meta.agents};
 
@@ -434,7 +422,7 @@ function mdl(s) {
   s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   return s.replace(/\u0001(\d+)\u0002/g, (m, i) => links[+i]);
 }
-function linkReqs(text) { return esc(text).replace(/#(\d+)/g, (m, n) => RI[n] !== undefined ? `<button class="reqbtn" data-req="${n}" title="${esc(REQ[RI[n]].name)}">#${n}</button>` : m); }
+const reqBtn = n => `<button class="reqbtn" type="button" data-req="${n}" title="${esc(REQ[RI[n]].name)}">#${n}</button>`;
 const eur = new Intl.NumberFormat('en-GB', {style:'currency', currency:'EUR', maximumFractionDigits:0});
 function cost(t) {
   const p = t.pricing; if (p.price == null || (p.maxAgents && S.agents > p.maxAgents)) return null;
@@ -445,9 +433,9 @@ function cost(t) {
 function costText(t, kind) {
   const c = cost(t);
   if (!c) { if (t.pricing.price != null) return kind === 'n' ? '' : `Tier above ${t.pricing.maxAgents} not known`; return kind === 'n' ? '' : (t.pricing.priceText || 'Not public'); }
-  if (kind === 'year') return '~' + eur.format(c.eur * 12);
-  if (kind === 'n') return c.n !== S.agents ? `billed for ${c.n} agents (vendor minimum or tier)` : `${c.n} agents`;
-  return '~' + eur.format(c.eur) + (t.pricing.tiered && S.agents !== D.meta.agents && kind === 'month' ? ' *' : '');
+  if (kind === 'year') return '~' + eur.format(c.eur * 12) + ' / year';
+  if (kind === 'n') return c.n !== S.agents ? `billed for ${c.n} agents (vendor minimum)` : `${c.n} agents`;
+  return '~' + eur.format(c.eur) + (t.pricing.tiered && S.agents !== D.meta.agents ? ' *' : '');
 }
 function vchip(v) { return `<span class="v ${v}">${VS[v]} ${VL[v]}</span>`; }
 function bar(c) {
@@ -455,7 +443,7 @@ function bar(c) {
   return `<div class="bar" role="img" aria-label="${c.M} meets, ${c.P} partial, ${c.X} does not meet, ${c.U} unknown, of ${c.n}">` +
     ['M','P','X','U'].map(k => c[k] ? `<i class="s${k}" style="width:${c[k] / c.n * 100}%"></i>` : '').join('') + '</div>';
 }
-function barN(c, label) { return c.n ? `<div class="bar-n"><b>${c.M}</b> / ${c.n}${label ? ' ' + label : ''}</div>` : '<div class="bar-n">none raised</div>'; }
+function barN(c, label) { return c.n ? `<div class="bar-n"><b>${c.M}</b> / ${c.n}${label ? ' ' + label : ''}</div>` : '<div class="bar-n">none</div>'; }
 function areaChips(r) { return AREAS.map((a, i) => r.areas[i] ? `<span class="ac ${r.areas[i]}" title="${esc(a.full)}: ${r.areas[i] === 'M' ? 'Must have' : 'Nice to have'}">${esc(a.short)}</span>` : '').join(''); }
 
 /* ---------- evidence (loaded on demand) ---------- */
@@ -465,66 +453,77 @@ function ev() {
   EVP.catch(() => { EVP = null; });
   return EVP;
 }
-const EV_FAIL = '<p class="loading">The evidence file could not be loaded. Reload the page to try again.</p>';
+const EV_FAIL = '<p class="loading">Evidence could not be loaded. Reload the page.</p>';
 function evidenceHTML(c) {
   return `<div class="ev">
     ${c.n ? `<div><span class="lbl">Verdict note</span>${mdl(c.n)}</div>` : ''}
-    <div><span class="lbl">Lowest plan that has it</span>${mdl(c.p) || '—'}</div>
-    <div><span class="lbl">Evidence (quoted from the vendor)</span><blockquote class="ev-quote">${mdl(c.e) || '—'}</blockquote></div>
+    <div><span class="lbl">Lowest plan</span>${mdl(c.p) || '—'}</div>
+    <div><span class="lbl">Evidence (vendor quote)</span><blockquote class="ev-quote">${mdl(c.e) || '—'}</blockquote></div>
     <div class="ev-src"><span class="lbl">Source</span>${mdl(c.s) || '—'}</div>
   </div>`;
 }
 function reqInfoHTML(r) {
   const raised = AREAS.map((a, i) => r.areas[i] ? `<li><span class="ac ${r.areas[i]}">${r.areas[i] === 'M' ? 'Must' : 'Nice'}</span>${esc(a.full)}</li>` : '').join('');
   return `<div class="reqinfo">
-    <div><span class="lbl">Requirement (from the sheet)</span>${esc(r.desc)}</div>
-    ${r.comment ? `<div><span class="lbl">Sheet comment</span>${esc(r.comment)}</div>` : ''}
-    <div><span class="lbl">Raised by · overall ${r.prio === 'M' ? 'Must have' : 'Nice to have'}</span><ul>${raised}</ul></div>
-    ${r.ko ? `<div class="kobasis"><span class="lbl">K.O. criterion · rule ${esc(r.ko.rule)}</span>${esc(r.ko.basis)}</div>` : ''}
-    <div class="small muted">Market standard per the sheet (preliminary): ${esc(r.market || '—')}</div>
+    <div><span class="lbl">Requirement</span>${esc(r.desc)}</div>
+    ${r.comment ? `<div class="small muted">${esc(r.comment)}</div>` : ''}
+    <div><span class="lbl">Raised by</span><ul>${raised}</ul></div>
+    ${r.ko ? `<div class="kobasis"><span class="lbl">K.O. · rule ${esc(r.ko.rule)}</span>${esc(r.ko.basis)}</div>` : ''}
   </div>`;
 }
 
-/* ---------- hero ---------- */
+/* ---------- hero + primer ---------- */
 function renderHero() {
-  const m = D.meta;
-  $('#h-date').textContent = 'evidence checked ' + m.checked;
-  $('#h-lede').innerHTML = `${TOOLS.length} candidates checked against all ${REQ.length} requirements from the team's sheet (${NM} Must have, ${NN} Nice to have). Every Meets, Partial or Does not meet links to a quote from an official vendor page and its source; Unknown means no evidence was found. Recommendation: <b>${D.recKeys.map(k => esc(TK[k].short)).join(', ')}</b>.`;
-  const considered = D.scan.length + TOOLS.filter(t => t.origin === 'initial').length;
-  $('#h-stats').innerHTML = [
-    [considered, 'products considered (brief, sheet and market scan)'],
-    [TOOLS.length, 'assessed on every requirement'],
-    [m.sourced, `verdicts backed by a vendor quote and source (${m.verdicts - m.sourced} more are Unknown)`],
-    [D.recKeys.length, 'recommended for focus groups'],
-  ].map(([b, s]) => `<div class="stat"><b>${b}</b><span>${s}</span></div>`).join('');
-  $('#h-assume').innerHTML = `Costs use <b id="h-ag">${S.agents}</b> agents (Platform ~6, People 2, Finance 1, IT 1, Operations 1). This is the requester's estimate, not data; change it in the candidate list. Budget is not set.`;
+  $('#h-date').textContent = D.meta.checked;
+  $('#h-lede').innerHTML = `For the focus groups: <b>${D.recKeys.map(k => esc(TK[k].short)).join(', ')}</b>. ${TOOLS.length} candidates compared on ${REQ.length} requirements from the team's sheet.`;
+  $('#h-assume').innerHTML = `<span class="tag warn">Assumption</span> Costs use <b id="h-ag">${S.agents}</b> agents (requester's estimate). Budget not set.`;
+}
+function renderPrimer() {
+  const has = l => KO.filter(r => r.ko.rule.includes(l));
+  const rA = has('A'), rB = has('B'), rC = has('C');
+  $('#primer').innerHTML = `
+    <div class="panel"><h3>K.O. = knock-out</h3>
+      <p>A Must so critical that a proven <b>Does not meet</b> rules the tool out. ${KO.length} of ${NM} Musts. Partial or Unknown = question for the vendor.</p>
+      <details class="more" style="margin-top:8px"><summary>How the ${KO.length} were chosen</summary><div class="inner"><ul class="rules">
+        <li><b>A (${rA.length})</b> Must for two or more areas.</li>
+        <li><b>B (${rB.length})</b> Called “key” or “has to” in the sheet's Notes.</li>
+        <li><b>C (${rC.length})</b> Added by the requester: ${rC.map(r => reqBtn(r.no)).join(' ')}</li>
+      </ul></div></details>
+    </div>
+    <div class="panel"><h3>Verdicts</h3>
+      <div class="vlist">
+        ${vchip('M')}<span>Documented in full. Only this counts as met.</span>
+        ${vchip('P')}<span>Partly documented, or via add-on / beta.</span>
+        ${vchip('X')}<span>Proven absent.</span>
+        ${vchip('U')}<span>No evidence found (not the same as missing).</span>
+      </div>
+    </div>`;
 }
 
 /* ---------- recommendation ---------- */
 function renderRecs() {
+  $('#dec-sub').textContent = 'Rank: no K.O. failure → Platform + IT Musts met → Operations Musts met. Same top 3 with equal weights. The team makes the final choice.';
   $('#recs').innerHTML = D.rec.top.map((x, i) => {
     const t = TK[D.recKeys[i]];
     return `<article class="rcard">
-      <div class="rcard-top"><span class="rank-b">${t.rank}</span><div><h3>${esc(t.short)}</h3><div class="vend">${esc(t.name)}</div></div></div>
+      <div class="rcard-top"><span class="rank-b">${t.rank}</span><h3>${esc(t.short)}</h3></div>
       <div class="kpis">
-        <div class="kpi"><b>${t.must.M}<span class="muted" style="font-size:13px"> / ${NM}</span></b><span>Must haves met</span></div>
-        <div class="kpi"><b>${t.pit.M}<span class="muted" style="font-size:13px"> / ${NPIT}</span></b><span>Platform + IT Musts</span></div>
-        <div class="kpi"><b data-cost="${t.key}" data-kind="month"></b><span>per month, est.</span></div>
+        <div class="kpi"><b>${t.must.M}<span class="muted" style="font-size:13px"> / ${NM}</span></b><span>Musts met</span></div>
+        <div class="kpi"><b>${t.pit.M}<span class="muted" style="font-size:13px"> / ${NPIT}</span></b><span>Platform + IT</span></div>
+        <div class="kpi"><b data-cost="${t.key}" data-kind="month"></b><span>per month</span></div>
       </div>
       ${bar(t.must)}
       <p class="why">${esc(x.why)}</p>
-      <div class="confirm"><span class="lbl">Confirm with the vendor first</span>${esc(x.confirm.replace(/^./, c => c.toUpperCase()))}</div>
-      <div class="small muted"><b>Trial:</b> ${esc(t.trial)}</div>
-      <button class="btn go" type="button" data-open="${t.key}">See requirements and evidence ↓</button>
+      <div class="confirm"><span class="lbl">Confirm first</span>${esc(x.confirm.replace(/^./, c => c.toUpperCase()))}</div>
+      <button class="btn go" type="button" data-open="${t.key}">Evidence ↓</button>
     </article>`;
   }).join('');
+  const gapNos = [...new Set(D.rec.gaps.join(' ').match(/#\d+/g).map(s => +s.slice(1)))].filter(n => RI[n] !== undefined);
   const res = TK[D.reserveKey];
-  $('#after-recs').innerHTML = `
-    <div class="panel"><h3>Client pilot (optional)</h3>${D.rec.pilot.map(p => `<p>${esc(p)}</p>`).join('')}</div>
-    <div class="panel"><h3>Reserve: ${esc(res.short)}</h3>${D.rec.reserve.map(p => `<p>${esc(p.replace(/^\*\*.+?\*\*\s*[–-]\s*/, '').replace(/^./, c => c.toUpperCase()))}</p>`).join('')}
-      <p style="margin-top:6px"><button class="btn link" type="button" data-open="${res.key}">Open ${esc(res.short)} ↓</button></p></div>
-    <div class="panel"><h3>Must haves none of the 3 meets in full</h3><ul>${D.rec.gaps.filter(g => /#\d/.test(g)).map(g => `<li>${linkReqs(g)}</li>`).join('')}</ul>
-      <p class="small" style="margin-top:6px">Click a number to compare all 16 tools on it. These go to all three vendors before or during the focus groups.</p></div>`;
+  $('#next').innerHTML = `
+    <li><b>Client pilot:</b> Halo + Atlassian (external client support documented); Freshservice only after Freshworks confirms external clients.</li>
+    <li><b>Reserve:</b> <button class="btn link" type="button" data-open="${res.key}">${esc(res.short)}</button>, one of two tools with full two-way Slack (#23); weak on EU data and IT Musts.</li>
+    <li><b>None of the 3 fully meets:</b> ${gapNos.map(reqBtn).join(' ')} → ask all three vendors.</li>`;
 }
 
 /* ---------- candidate list ---------- */
@@ -533,30 +532,29 @@ function lensCounts(t) {
   return [count(t, r => r.areas[S.lens] === 'M'), count(t, r => r.areas[S.lens] === 'N')];
 }
 function renderControls() {
-  const lens = [{i:-1, l:'All areas'}].concat(AREAS.map((a, i) => ({i, l:a.short})));
-  $('#lens').innerHTML = lens.map(o => `<button type="button" data-lens="${o.i}" aria-pressed="${S.lens === o.i}">${esc(o.l)}</button>`).join('');
-  $('#sort').innerHTML = [['rank', 'Rank'], ['met', 'Most met'], ['cost', 'Lowest cost']].map(([k, l]) => `<button type="button" data-sort="${k}" aria-pressed="${S.sort === k}">${l}</button>`).join('');
+  const lens = [{i:-1, l:'All'}].concat(AREAS.map((a, i) => ({i, l:a.short})));
+  $('#lens').innerHTML = lens.map(o => `<button type="button" data-lens="${o.i}" aria-pressed="${S.lens === o.i}"${o.i >= 0 ? ` title="${esc(AREAS[o.i].full)}"` : ''}>${esc(o.l)}</button>`).join('');
+  $('#sort').innerHTML = [['rank', 'Rank'], ['met', 'Most met'], ['cost', 'Cost']].map(([k, l]) => `<button type="button" data-sort="${k}" aria-pressed="${S.sort === k}">${l}</button>`).join('');
   $('#ag').value = S.agents;
 }
 function lensNote() {
-  if (S.lens < 0) return `Rank = no K.O. failure → Platform + IT Must haves met (${NPIT}) → Operations Must haves met (${NOPS}). User decision: Platform and IT weigh more, because they have no tool today. Operations' weight is not decided; it does not change the top 3.`;
-  const a = AREAS[S.lens], key = a.short, nm = REQ.filter(r => r.areas[S.lens] === 'M').length, nn = REQ.filter(r => r.areas[S.lens] === 'N').length;
-  return `${esc(a.full)}: ${nm} Must have, ${nn} Nice to have. Source: ${esc(D.sources[key] || '')}.` + (nm ? '' : ' This area marked nothing as Must have.');
+  if (S.lens < 0) return `Rank: no K.O. failure → Platform + IT Musts (${NPIT}) → Operations Musts (${NOPS}).`;
+  const a = AREAS[S.lens], nm = REQ.filter(r => r.areas[S.lens] === 'M').length, nn = REQ.filter(r => r.areas[S.lens] === 'N').length;
+  return `<span title="${esc(D.sources[a.short] || '')}">${esc(a.full)}</span>: ${nm} Must, ${nn} Nice.`;
 }
 function rowHTML(t) {
   const tags = [];
   if (t.isRec) tags.push(`<span class="tag rec">Recommended</span>`);
   if (t.key === D.reserveKey) tags.push(`<span class="tag">Reserve</span>`);
-  tags.push(t.koFail.length ? `<span class="tag fail">Fails K.O. ${t.koFail.map(n => '#' + n).join(', ')}</span>` : `<span class="tag ok">No K.O. failure</span>`);
-  if (t.origin === 'scan') tags.push(`<span class="tag">From market scan</span>`);
-  if (t.caveat && t.key === 'servicenow') tags.push(`<span class="tag warn">Evidence limited</span>`);
+  if (t.koFail.length) tags.push(`<span class="tag fail">Fails K.O. ${t.koFail.map(n => '#' + n).join(', ')}</span>`);
+  if (t.key === 'servicenow') tags.push(`<span class="tag warn">Evidence limited</span>`);
   return `<article class="cand${t.isRec ? ' rec' : ''}" id="c-${t.key}" data-key="${t.key}">
-    <button class="cand-head" type="button" aria-expanded="false" aria-controls="dd-${t.key}">
+    <button class="cand-head" type="button" aria-expanded="false" aria-controls="dd-${t.key}" title="${esc(t.name)}">
       <span class="rank">${t.rank}</span>
-      <span class="who"><span class="nm">${esc(t.short)}</span><span class="sub" title="${esc(t.name)}">${esc(t.name)}</span><span class="tags">${tags.join('')}</span></span>
+      <span class="who"><span class="nm">${esc(t.short)}</span>${tags.length ? `<span class="tags">${tags.join('')}</span>` : ''}</span>
       <span class="c-must"></span><span class="c-nice"></span>
       <span class="num c-pit"><span class="mlabel">Plat. + IT Musts</span><b>${t.pit.M}</b><span class="muted"> / ${NPIT}</span></span>
-      <span class="num c-cost"><span class="mlabel">Est. per month</span><b data-cost="${t.key}" data-kind="month"></b></span>
+      <span class="num c-cost"><span class="mlabel">Per month</span><b data-cost="${t.key}" data-kind="month"></b></span>
       <svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="dd" id="dd-${t.key}" hidden></div>
@@ -585,10 +583,7 @@ function updateCosts() {
   $$('[data-cost]').forEach(el => el.textContent = costText(TK[el.dataset.cost], el.dataset.kind));
   const h = $('#h-ag'); if (h) h.textContent = S.agents;
 }
-function renderList() {
-  $('#list').innerHTML = RANKED.map(rowHTML).join('');
-  updateRows(); updateCosts();
-}
+function renderList() { $('#list').innerHTML = RANKED.map(rowHTML).join(''); updateRows(); updateCosts(); }
 
 /* ---------- deep dive ---------- */
 function areaCard(t) {
@@ -598,47 +593,55 @@ function areaCard(t) {
       <div>${mu.n ? bar(mu) + barN(mu, 'Must') : '<div class="bar-n">no Musts</div>'}</div>
       <div>${ni.n ? bar(ni) + barN(ni, 'Nice') : '<div class="bar-n">no Nice</div>'}</div></div>`;
   }).join('');
-  return `<div class="areas-card"><h4>Who gets what: requirements met per area</h4>${rows}</div>`;
+  return `<div class="areas-card"><h4>Met per area</h4>${rows}</div>`;
 }
 function ddHTML(t) {
   const p = t.pricing;
-  const price = p.price != null ? `${p.currency === 'GBP' ? '£' : p.currency === 'EUR' ? '€' : 'US$'}${p.price} per agent / month (${esc(p.billing || 'billing not stated')})` : esc(p.priceText || 'Not public');
-  const others = t.otherPlans.length ? `<details class="more"><summary>Other plans (${t.otherPlans.length})</summary><div class="inner"><ol>${t.otherPlans.map(o => `<li><b>${esc(o.plan)}</b>: ${typeof o.price === 'number' ? esc(o.price + ' ' + o.currency) : esc(o.price)}${o.billing ? ', ' + esc(o.billing) : ''}. ${esc(o.notes)} ${o.source ? `<a href="${esc(o.source)}" target="_blank" rel="noopener noreferrer">source</a>` : ''}</li>`).join('')}</ol></div></details>` : '';
-  const vc = {M:0, P:0, X:0, U:0}; [...t.v].forEach(v => vc[v]++);
+  const sym = {GBP:'£', EUR:'€', USD:'US$'}[p.currency] || '';
+  const price = p.price != null ? `${sym}${p.price} per agent / month` : esc(p.priceText || 'Not public');
+  const others = t.otherPlans.map(o => `<li><b>${esc(o.plan)}</b>: ${typeof o.price === 'number' ? esc(o.price + ' ' + o.currency) : esc(o.price)}${o.billing ? ', ' + esc(o.billing) : ''}. ${esc(o.notes)}</li>`).join('');
   return `
     ${t.caveat ? `<div class="caveat">${esc(t.caveat)}</div>` : ''}
+    <div class="dd-top">
+      <div><span class="lbl">Est. cost</span><div class="costbig" data-cost="${t.key}" data-kind="month"></div><div class="small muted"><span data-cost="${t.key}" data-kind="year"></span> · <span data-cost="${t.key}" data-kind="n"></span></div></div>
+      <div><span class="lbl">Plan</span>${esc(p.plan)}<div class="small muted">${price}</div></div>
+      <div><span class="lbl">Free trial</span>${esc(t.trial)}</div>
+    </div>
     <div class="dd-grid">
-      <div class="facts">
-        <div class="wide"><span class="lbl">Product(s)</span>${esc(t.products)}</div>
-        <div class="wide"><span class="lbl">One tool for internal requests and clients?</span>${esc(t.oneTool)}</div>
-        <div><span class="lbl">Estimated cost (excl. VAT and add-ons)</span><div class="costbig" data-cost="${t.key}" data-kind="month"></div><div class="small muted"><span data-cost="${t.key}" data-kind="year"></span> per year · <span data-cost="${t.key}" data-kind="n"></span></div>${p.tiered ? `<div class="small" style="color:var(--p-fg)">${esc(p.tiered)}</div>` : ''}</div>
-        <div><span class="lbl">Plan used for the estimate</span>${esc(p.plan)}<div class="small">${price}${p.source ? ` · <a href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">pricing page</a>` : ''}</div>${p.notes ? `<div class="small muted">${esc(p.notes)}</div>` : ''}</div>
-        <div><span class="lbl">Extra and one-off costs</span>${esc(t.extra || '—')}</div>
-        <div><span class="lbl">AI</span>${esc(t.ai || '—')}</div>
-        <div class="wide"><span class="lbl">Free trial</span>${esc(t.trial)}</div>
-        <div class="wide">${others}</div>
+      <div class="dd-left">
+        <div><span class="lbl">One tool for internal + clients?</span>${esc(t.oneTool)}</div>
+        <div class="sg"><span class="lbl">Strengths</span>${esc(t.strengths)}</div>
+        <div class="sg gaps"><span class="lbl">Gaps</span>${esc(t.gaps)}</div>
+        <details class="more"><summary>Pricing details, AI, extra costs</summary><div class="inner"><dl class="kv">
+          <dt>Product</dt><dd>${esc(t.products)}</dd>
+          <dt>Billing</dt><dd>${esc(p.billing || 'not stated')}${p.source ? ` · <a href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">pricing page</a>` : ''}</dd>
+          ${p.notes ? `<dt>Notes</dt><dd>${esc(p.notes)}</dd>` : ''}
+          ${p.tiered ? `<dt>Tier</dt><dd>${esc(p.tiered)}</dd>` : ''}
+          <dt>Extra</dt><dd>${esc(t.extra || '—')}</dd>
+          <dt>AI</dt><dd>${esc(t.ai || '—')}</dd>
+          ${others ? `<dt>Other plans</dt><dd><ol>${others}</ol></dd>` : ''}
+        </dl></div></details>
       </div>
       ${areaCard(t)}
     </div>
-    <div class="sg"><div><span class="lbl">Strengths</span>${esc(t.strengths)}</div><div class="gaps"><span class="lbl">Gaps</span>${esc(t.gaps)}</div></div>
     <div class="rq-tools">
-      <div class="ctl"><span class="lbl">Search</span><input class="search" type="search" placeholder="e.g. Slack, SLA, #23" data-f="q"></div>
-      <div class="ctl"><span class="lbl">Priority</span><select class="sel" data-f="prio"><option value="">All</option><option value="M">Must have</option><option value="N">Nice to have</option><option value="K">K.O. only</option></select></div>
+      <div class="ctl"><span class="lbl">Search</span><input class="search" type="search" placeholder="Slack, SLA, #23" data-f="q"></div>
       <div class="ctl"><span class="lbl">Raised by</span><select class="sel" data-f="area"><option value="">Any area</option>${AREAS.map((a, i) => `<option value="${i}">${esc(a.full)}</option>`).join('')}</select></div>
-      <div class="ctl"><span class="lbl">Verdict</span><select class="sel" data-f="v"><option value="">All (${REQ.length})</option>${['M','P','X','U'].map(k => `<option value="${k}">${VL[k]} (${vc[k]})</option>`).join('')}</select></div>
+      <div class="ctl"><span class="lbl">Verdict</span><select class="sel" data-f="v"><option value="">All</option>${['M','P','X','U'].map(k => `<option value="${k}">${VL[k]} (${[...t.v].filter(x => x === k).length})</option>`).join('')}</select></div>
+      <div class="ctl"><span class="lbl">Show</span><select class="sel" data-f="ko"><option value="">All requirements</option><option value="1">K.O. only</option></select></div>
       <span class="rq-count" aria-live="polite"></span>
     </div>
-    <div class="rq-list">${['M', 'N'].map(pr => `<div class="rq-group" data-grp="${pr}">${pr === 'M' ? 'Must have' : 'Nice to have'}</div>` + REQ.filter(r => r.prio === pr).map(r => rqHTML(t, r)).join('')).join('')}</div>
-    <details class="more" data-q><summary>Open questions for ${esc(t.vendor)} (things the public pages do not answer)</summary><div class="inner"><p class="loading">Loading…</p></div></details>
-    <details class="more" data-chk><summary>Reviewer corrections and checks</summary><div class="inner"><p class="loading">Loading…</p></div></details>
-    <p class="files">Evidence files in the repo: ${t.files.map(f => `<a href="${esc(D.meta.repoUrl + f)}" target="_blank" rel="noopener noreferrer">${esc(f)}</a>`).join(' · ')}</p>`;
+    ${['M', 'N'].map(pr => `<details class="rq-grp" data-grp="${pr}"${pr === 'M' ? ' open' : ''}><summary></summary>${REQ.filter(r => r.prio === pr).map(r => rqHTML(t, r)).join('')}</details>`).join('')}
+    <details class="more" data-q><summary>Open questions for ${esc(t.vendor)}</summary><div class="inner"><p class="loading">Loading…</p></div></details>
+    <details class="more" data-chk><summary>Reviewer corrections</summary><div class="inner"><p class="loading">Loading…</p></div></details>
+    <p class="files">Evidence files: ${t.files.map(f => `<a href="${esc(D.meta.repoUrl + f)}" target="_blank" rel="noopener noreferrer">${esc(f)}</a>`).join(' · ')}</p>`;
 }
 function rqHTML(t, r) {
   const v = t.v[RI[r.no]];
   return `<div class="rq" data-no="${r.no}" data-v="${v}">
     <button class="rq-head" type="button" aria-expanded="false">
       ${vchip(v)}<span class="rq-no">#${r.no}</span>
-      <span class="rq-name">${esc(r.name)} ${r.ko ? '<span class="tag ko">K.O.</span>' : ''}<span class="grp">${esc(r.group)}</span></span>
+      <span class="rq-name">${esc(r.name)} ${r.ko ? '<span class="tag ko">K.O.</span>' : ''}</span>
       <span class="rq-areas">${areaChips(r)}</span>
     </button>
     <div class="rq-body" hidden></div>
@@ -646,25 +649,30 @@ function rqHTML(t, r) {
 }
 function filterReqs(dd) {
   const f = {}; $$('[data-f]', dd).forEach(el => f[el.dataset.f] = el.value.trim().toLowerCase());
+  const active = f.q || f.area !== '' || f.v || f.ko;
   let shown = 0; const grp = {M:0, N:0};
   $$('.rq', dd).forEach(el => {
     const r = REQ[RI[el.dataset.no]];
     let ok = true;
-    if (f.prio === 'm' || f.prio === 'n') ok = r.prio === f.prio.toUpperCase();
-    if (f.prio === 'k') ok = !!r.ko;
+    if (f.ko) ok = !!r.ko;
     if (ok && f.area !== '') ok = !!r.areas[+f.area];
     if (ok && f.v) ok = el.dataset.v === f.v.toUpperCase();
     if (ok && f.q) { const q = f.q.replace(/^#/, ''); ok = String(r.no) === q || (r.name + ' ' + r.desc + ' ' + r.group).toLowerCase().includes(f.q); }
     el.hidden = !ok; if (ok) { shown++; grp[r.prio]++; }
   });
-  $$('.rq-group', dd).forEach(g => { g.hidden = !grp[g.dataset.grp]; g.textContent = `${g.dataset.grp === 'M' ? 'Must have' : 'Nice to have'} · ${grp[g.dataset.grp]}`; });
-  $('.rq-count', dd).textContent = `Showing ${shown} of ${REQ.length}`;
+  $$('details.rq-grp', dd).forEach(g => {
+    const k = g.dataset.grp, n = grp[k], tot = REQ.filter(r => r.prio === k).length;
+    g.hidden = !n; if (active && n) g.open = true;
+    $('summary', g).textContent = `${k === 'M' ? 'Must have' : 'Nice to have'} · ${n}${n !== tot ? ' of ' + tot : ''}`;
+  });
+  $('.rq-count', dd).textContent = active ? `${shown} of ${REQ.length}` : '';
 }
 async function fillTexts(t, dd) {
   try {
     const E = (await ev())[t.key];
-    $('[data-q] .inner', dd).innerHTML = E.questions.length ? `<ol>${E.questions.map(q => `<li>${mdl(q)}</li>`).join('')}</ol>` : '<p class="small muted">None recorded.</p>';
-    $('[data-chk] .inner', dd).innerHTML = E.checks.length ? `<ol>${E.checks.map(q => `<li>${mdl(q)}</li>`).join('')}</ol>` : '<p class="small muted">None recorded.</p>';
+    const list = a => a.length ? `<ol>${a.map(q => `<li>${mdl(q)}</li>`).join('')}</ol>` : '<p class="small muted">None.</p>';
+    $('[data-q] .inner', dd).innerHTML = list(E.questions);
+    $('[data-chk] .inner', dd).innerHTML = list(E.checks);
   } catch (e) { $('[data-q] .inner', dd).innerHTML = EV_FAIL; $('[data-chk] .inner', dd).innerHTML = EV_FAIL; }
 }
 function toggleTool(key, force) {
@@ -682,7 +690,7 @@ async function toggleReq(rq, key) {
   body.innerHTML = `<div class="ev-wrap">${reqInfoHTML(r)}<div class="ev-slot"><p class="loading">Loading evidence…</p></div></div>`;
   try {
     const c = (await ev())[key].cells[r.no];
-    $('.ev-slot', body).innerHTML = evidenceHTML(c) + `<div class="ev-actions" style="margin-top:10px"><button class="btn link" type="button" data-req="${r.no}">Compare all 16 tools on #${r.no} →</button></div>`;
+    $('.ev-slot', body).innerHTML = evidenceHTML(c) + `<p style="margin-top:10px"><button class="btn link" type="button" data-req="${r.no}">Compare all candidates on #${r.no} →</button></p>`;
     body.dataset.built = '1';
   } catch (e) { $('.ev-slot', body).innerHTML = EV_FAIL; }
 }
@@ -702,7 +710,7 @@ async function openReq(no, focusKey) {
     const E = await ev();
     $('#cmp-list').innerHTML = RANKED.map(t => {
       const c = E[t.key].cells[no], v = t.v[i], open = focusKey ? t.key === focusKey : t.isRec;
-      return `<details class="cmp${t.key === focusKey ? ' focus' : ''}" ${open ? 'open' : ''} data-k="${t.key}"><summary>${vchip(v)}<span class="tn">${esc(t.short)} <small>rank ${t.rank}</small></span><span class="nt">${mdl(c.n) || ''}</span></summary>${evidenceHTML(c)}</details>`;
+      return `<details class="cmp${t.key === focusKey ? ' focus' : ''}" ${open ? 'open' : ''} data-k="${t.key}"><summary>${vchip(v)}<span class="tn">${esc(t.short)} <small>#${t.rank}</small></span><span class="nt">${mdl(c.n) || ''}</span></summary>${evidenceHTML(c)}</details>`;
     }).join('');
     if (focusKey) { const f = $(`details.cmp[data-k="${focusKey}"]`); if (f) f.scrollIntoView({block:'nearest'}); }
   } catch (e) { $('#cmp-list').innerHTML = EV_FAIL; }
@@ -712,65 +720,58 @@ dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 
 /* ---------- K.O. view ---------- */
 function renderKO() {
-  const fails = RANKED.filter(t => t.koFail.length);
-  const best = Math.max(...TOOLS.map(t => t.koC.M));
-  const bestT = RANKED.filter(t => t.koC.M === best).map(t => t.short);
+  const best = Math.max(...TOOLS.map(t => t.koC.M)), bestT = RANKED.filter(t => t.koC.M === best).map(t => t.short);
   const none = KO.filter(r => !TOOLS.some(t => t.v[RI[r.no]] === 'M'));
-  const byRule = {}; KO.forEach(r => (byRule[r.ko.rule] = byRule[r.ko.rule] || []).push(r.no));
-  $('#ko-sub').innerHTML = `${KO.length} of the ${NM} Must haves were chosen from the sheet as knock-out criteria: Must have for two or more areas (rule A), named “key” or “has to” in the sheet's Notes (rule B), or added by the requester (rule C: #23, #27, #29). Only a proven “Does not meet” rules a tool out; Partial and Unknown become questions for the vendor. The other Must haves are scored, not eliminating.`;
-  $('#ko-sum').innerHTML = `
-    <div class="panel"><h3>${fails.length} tools fail a K.O. criterion</h3><p>${fails.map(t => `<b>${esc(t.short)}</b> (${t.koFail.map(n => '#' + n + ' ' + esc(REQ[RI[n]].name)).join('; ')})`).join(', ')}. They stay in the review with that flag.</p></div>
-    <div class="panel"><h3>No tool meets all ${KO.length}</h3><p>Most met in full: ${best} of ${KO.length} (${esc(bestT.join(', '))}). The rest are mostly Partial: the vendor's pages cover only part of the criterion.</p></div>
-    <div class="panel"><h3>${none.length ? none.length + ' criteria no tool meets in full' : 'Every criterion is met by at least one tool'}</h3><p>${none.map(r => `<button class="reqbtn" data-req="${r.no}">#${r.no}</button> ${esc(r.name)}`).join('<br>') || '—'}</p></div>`;
+  $('#ko-line').innerHTML = [
+    FAILS.length ? `<span><b>Fail:</b> ${FAILS.map(t => esc(t.short)).join(', ')} (${FAILNOS.map(reqBtn).join(' ')})</span>` : '<span><b>No tool fails</b></span>',
+    `<span><b>Most met:</b> ${esc(bestT.join(', '))} ${best}/${KO.length}</span>`,
+    none.length ? `<span><b>Met by none:</b> ${none.map(r => reqBtn(r.no)).join(' ')}</span>` : '',
+  ].join('');
   const firstFail = RANKED.findIndex(t => t.koFail.length);
   const th = RANKED.map((t, j) => `<th class="tcol${t.isRec ? ' rec' : ''}${j === firstFail ? ' sep' : ''}" scope="col"><span>${esc(t.short)}</span></th>`).join('');
-  const rows = KO.map(r => `<tr><th class="crit" scope="row"><button type="button" data-req="${r.no}">#${r.no} ${esc(r.name)}<span class="rl">Rule ${esc(r.ko.rule)} · ${r.areas.map((x, i) => x === 'M' ? AREAS[i].short : '').filter(Boolean).join(', ') || 'no area Must'}</span></button></th>` +
+  const rows = KO.map(r => `<tr><th class="crit" scope="row"><button type="button" data-req="${r.no}">#${r.no} ${esc(r.name)}<span class="rl">Rule ${esc(r.ko.rule)} · ${r.areas.map((x, i) => x === 'M' ? AREAS[i].short : '').filter(Boolean).join(', ') || '—'}</span></button></th>` +
     RANKED.map((t, j) => { const v = t.v[RI[r.no]]; return `<td${j === firstFail ? ' class="sep"' : ''}><button class="cell ${v}" type="button" data-req="${r.no}" data-tool="${t.key}" title="${esc(t.short)} · #${r.no}: ${VL[v]}" aria-label="${esc(t.short)}, #${r.no}: ${VL[v]}">${VS[v]}</button></td>`; }).join('') + '</tr>').join('');
-  const foot = `<tr><th class="crit" scope="row">Met in full (of ${KO.length})</th>${RANKED.map((t, j) => `<td${j === firstFail ? ' class="sep"' : ''}>${t.koC.M}</td>`).join('')}</tr>`;
+  const foot = `<tr><th class="crit" scope="row">Met (of ${KO.length})</th>${RANKED.map((t, j) => `<td${j === firstFail ? ' class="sep"' : ''}>${t.koC.M}</td>`).join('')}</tr>`;
   $('#mx').innerHTML = `<thead><tr><th class="crit" scope="col">Criterion</th>${th}</tr></thead><tbody>${rows}</tbody><tfoot>${foot}</tfoot>`;
 }
 
-/* ---------- market scan ---------- */
+/* ---------- method ---------- */
 function renderScan() {
   const init = TOOLS.filter(t => t.origin === 'initial').length, scanT = TOOLS.filter(t => t.origin === 'scan');
-  const pass = D.scan.filter(s => s.result.startsWith('Pass')).length, fail = D.scan.length - pass;
-  $('#scan-sub').innerHTML = `The first ${init} candidates came from the brief, the requirements sheet and the reviewer's general knowledge. That was not systematic, so a market scan was added: a long list of ${D.scan.length} more products from category and comparison pages (names only), then a 4-question filter on official vendor pages. Products whose vendor documents internal and client support in one product went on to the full assessment.`;
+  const pass = D.scan.filter(s => s.result.startsWith('Pass')).length;
   $('#funnel').innerHTML = [
-    [init, 'from the brief and the sheet'], [D.scan.length, 'more on the long list'], [pass, 'passed the 4-question filter'],
-    [scanT.length, 'one product for both uses → full assessment'], [TOOLS.length, 'assessed on all 59'], [D.recKeys.length, 'recommended']
+    [init, 'from brief and sheet'], [D.scan.length, 'from market scan'], [pass, 'passed 4-question filter'],
+    [scanT.length, 'one product for both uses'], [TOOLS.length, 'compared'], [D.recKeys.length, 'recommended']
   ].map(([b, s], i) => (i ? '<span class="farrow" aria-hidden="true">→</span>' : '') + `<div class="fstep"><b>${b}</b><span>${s}</span></div>`).join('');
-  $('#scan-sum').textContent = `Market scan: all ${D.scan.length} products with the filter result (${pass} pass, ${fail} fail)`;
-  $('#scan-q').textContent = 'Q1 one product for internal requests and client support · Q2 ISO 27001 or SOC 2 · Q3 EU hosting possible · Q4 Slack integration. A “No” on Q1–Q3 fails; Q4 is recorded only. Unknown does not fail. Evidence and quotes per product: analysis/market_scan/ in the repo.';
+  $('#scan-q').textContent = 'Filter: Q1 one product for internal + clients · Q2 ISO 27001 or SOC 2 · Q3 EU hosting · Q4 Slack. “No” on Q1–Q3 fails; Q4 is recorded only.';
   const assessed = s => scanT.some(t => s.product.toLowerCase().startsWith(t.short.toLowerCase()));
-  $('#scan-tbl').innerHTML = `<thead><tr><th>Product</th><th>Group</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Result</th><th>Reason / note</th></tr></thead><tbody>` +
-    D.scan.map(s => `<tr><td class="prod">${esc(s.product)}${assessed(s) ? '<div><span class="tag rec" style="margin-top:4px">Fully assessed</span></div>' : ''}</td><td class="small">${esc(D.scanGroups[s.group] || s.group)}</td>` +
+  $('#scan-tbl').innerHTML = `<thead><tr><th>Product</th><th>Group</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Result</th><th>Reason</th></tr></thead><tbody>` +
+    D.scan.map(s => `<tr><td class="prod">${esc(s.product)}${assessed(s) ? '<div><span class="tag rec" style="margin-top:4px">Compared</span></div>' : ''}</td><td class="small">${esc(D.scanGroups[s.group] || s.group)}</td>` +
       s.q.map(q => `<td><span class="q ${esc(q.split(' ')[0])}" title="${esc(q)}">${esc(q)}</span></td>`).join('') +
       `<td><span class="tag ${s.result === 'Fail' ? 'fail' : s.result === 'Pass' ? 'ok' : 'warn'}">${esc(s.result)}</span></td><td class="reason">${mdl(s.reason)}</td></tr>`).join('') + '</tbody>';
 }
-
-/* ---------- method ---------- */
 function renderMethod() {
   const m = D.meta, ol = a => `<ol>${a.map(x => `<li>${mdl(x)}</li>`).join('')}</ol>`;
   $('#method-body').innerHTML = `
-    <div class="panel"><h3>Sources</h3>${ol([
-      `Requirements: Google Sheet [Helpdesk Tool requirements](${m.reqSheetUrl}), version of ${m.reqVersion} (file last modified ${m.reqModified}). Who raised each area: ${Object.entries(D.sources).filter(([k]) => k !== 'Last updated').map(([k, v]) => k + ' – ' + v).join('; ')}.`,
-      `Evidence: official vendor pages only, checked ${m.checked}. Comparison sites and blogs were used only to find product names.`,
-      'ServiceNow blocks automated browsers; its verdicts rest on PDFs of vendor pages supplied by the requester.',
-      `Full workbook with every cell: [Helpdesk tool market review (16 tools, all 59 requirements)](${m.workbookUrl}). Evidence files and generator: [repository](${m.repoUrl}).`])}</div>
-    <div class="panel"><h3>Verdict rules</h3>${ol(m.verdictRules)}</div>
-    <div class="panel"><h3>K.O. criteria and ranking</h3>${ol(m.koRules.concat(D.rec.method))}</div>
-    <div class="panel"><h3>Cost and what is not decided</h3>${ol([
-      `Estimate = price per agent × the larger of the agent count and the vendor's minimum or tier, converted to EUR with ECB reference rates of ${m.ecbDate} (1 EUR = ${m.usdPerEur} USD = ${m.gbpPerEur} GBP, [ECB](${m.ecbUrl})). VAT, add-ons and onboarding are not included.`,
-      `The agent count (${m.agents}) is the requester's assumption: Platform ~6, People 2, Finance 1, IT 1, Operations 1.`,
-      'Budget is not set; it is a decision outside this review.',
-      'Operations\' weight against Platform and IT is not decided. The top 3 is the same with equal weights and with all Must haves counted equally.',
-      'Which and how many tools go to focus groups and client pilots is the team\'s decision.'])}</div>`;
-  $('#foot').innerHTML = `Built ${esc(m.built)} from the evidence files in the repository. Counts are computed on this page from the verdicts; “Partial” and “Unknown” never count as met.`;
+    <div><h3>Sources</h3>${ol([
+      `Requirements: [Helpdesk Tool requirements](${m.reqSheetUrl}), version ${m.reqVersion} (file modified ${m.reqModified}). Areas: ${Object.entries(D.sources).filter(([k]) => k !== 'Last updated').map(([k, v]) => k + ' – ' + v).join('; ')}.`,
+      `Evidence: official vendor pages only, checked ${m.checked}. Comparison sites only for product names.`,
+      'ServiceNow: vendor pages supplied as PDFs by the requester (site blocks automated browsers).',
+      `Workbook: [Helpdesk tool market review (16 tools, all 59 requirements)](${m.workbookUrl}). Files: [repository](${m.repoUrl}).`])}</div>
+    <div><h3>Verdict rules</h3>${ol(m.verdictRules)}</div>
+    <div><h3>K.O. and ranking</h3>${ol(m.koRules.concat(D.rec.method))}</div>
+    <div><h3>Cost and open decisions</h3>${ol([
+      `Cost = price per agent × max(agents, vendor minimum), EUR at ECB rates of ${m.ecbDate} (1 EUR = ${m.usdPerEur} USD = ${m.gbpPerEur} GBP, [ECB](${m.ecbUrl})). Excl. VAT, add-ons, onboarding.`,
+      `Agents (${m.agents}) = requester's assumption: Platform ~6, People 2, Finance 1, IT 1, Operations 1.`,
+      'Budget: not set (outside this review).',
+      'Operations weight: not decided; does not change the top 3.',
+      'Which tools go to focus groups and pilots: the team decides.'])}</div>`;
+  $('#foot').textContent = `Evidence checked ${m.checked}. Only “Meets” counts as met.`;
 }
 
 /* ---------- events ---------- */
 document.addEventListener('click', e => {
-  const b = e.target.closest('button, [data-open]');
+  const b = e.target.closest('button');
   if (!b) return;
   if (b.dataset.lens !== undefined) { S.lens = +b.dataset.lens; renderControls(); updateRows(); if (S.sort === 'met') sortRows(); return; }
   if (b.dataset.sort) { S.sort = b.dataset.sort; renderControls(); sortRows(); return; }
@@ -786,5 +787,5 @@ $('#ag-dn').addEventListener('click', () => setAgents(S.agents - 1));
 $('#ag-up').addEventListener('click', () => setAgents(S.agents + 1));
 $('#ag').addEventListener('change', e => setAgents(e.target.value));
 
-renderHero(); renderRecs(); renderControls(); renderList(); renderKO(); renderScan(); renderMethod(); updateCosts();
+renderHero(); renderPrimer(); renderRecs(); renderControls(); renderList(); renderKO(); renderScan(); renderMethod(); updateCosts();
 </script>
