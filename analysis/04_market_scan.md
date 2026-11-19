@@ -92,3 +92,22 @@ Details, quotes and sources: `analysis/market_scan/filter_A.md` … `filter_F.md
 1. Full assessment (16 K.O. + 43 other requirements) only for the 7 products with Q1 = Yes: Zammad, OTRS, HelpSpot, Deskpro, Unthread, Suptask, NinjaOne Ticketing.
 2. Reason: decision 2 (one tool first); most Q1 = Partial products need a second product, edition or licence plan for the other use.
 3. The other 17 products that passed keep their filter result and can be added later.
+
+## Step 3 result – Full assessment of the 7 products (2026-11-18/19)
+
+Counts are Meets / Partial / Does not meet / Unknown over all 59 requirements (K.O. files in `analysis/ko_screen/`, the rest in `analysis/full_screen/`). Cost = price x max(11 agents, vendor minimum), EUR via ECB reference rates of 2026-11-18; add-ons not included.
+
+| Product | Must have (29) | Nice to have (30) | Platform Musts met | IT Musts met | Est. EUR per month |
+|---|---|---|---|---|---|
+| Unthread | 17 / 10 / 0 / 2 | 10 / 19 / 0 / 1 | 11 of 15 | 2 of 6 | ~853 (Pro, US$85) |
+| Deskpro | 14 / 15 / 0 / 0 | 11 / 19 / 0 / 0 | 8 of 15 | 1 of 6 | ~391 (Team, US$39) |
+| Suptask | 13 / 15 / 0 / 1 | 5 / 24 / 0 / 1 | 6 of 15 | 2 of 6 | ~381 (Growth, US$38) |
+| HelpSpot | 13 / 15 / 0 / 1 | 11 / 18 / 1 / 0 | 8 of 15 | 1 of 6 | ~243 (15-agent tier) |
+| Zammad | 11 / 16 / 1 / 1 | 8 / 21 / 1 / 0 | 8 of 15 | 1 of 6 | 275 (Plus v2, €25) |
+| OTRS | 11 / 16 / 0 / 2 | 13 / 17 / 0 / 0 | 7 of 15 | 0 of 6 | Not public |
+| NinjaOne Ticketing | 11 / 14 / 0 / 4 | 5 / 18 / 2 / 5 | 7 of 15 | 1 of 6 | Not public (per device) |
+
+1. None of the 7 meets more Must haves than the best of the first 9 (Halo 23, Freshservice 21, Atlassian 21).
+2. Unthread and Suptask are the only tools of all 16 that fully meet #23 (two-way Slack).
+3. Reviewer corrections in step 3 (all to the stricter verdict): Zammad #21, Deskpro #3, #10 and #28. Each is described in the product's file.
+4. Workbook with all 16 tools: [Helpdesk tool market review (16 tools, all 59 requirements)](https://docs.google.com/spreadsheets/d/18ER6Wh3bzfAFiQ_nCeuNp9sDBi17iPAj8_Oq1dqwLMI/edit).
