@@ -2,6 +2,10 @@
 
 Każda zmiana w repo = osobny commit + wpis tutaj (najnowsze na górze).
 
+## 2026-11-19
+
+1. Dodano stronę decyzyjną (Artifact, prywatny): [Helpdesk Tool Decision](https://claude.ai/artifact/QNWaqC1ChMPp2n4JPnGqGe). Generator `tools/build_explorer.py` + szablon `tools/explorer_template.html`; wynik w `artifact/helpdesk_decision/` (`index.html`, `evidence.json`). Co: rekomendacja 3 narzędzi, lista 16 kandydatów (Musty/Nice, filtr obszaru, sortowanie, koszt przy zmiennej liczbie agentów), rozwijany deep dive per narzędzie (wszystkie 59 wymagań z priorytetem, obszarem i osobą zgłaszającą, werdyktem, cytatem i źródłem), macierz 16 kryteriów K.O., wynik przeglądu rynku (35 produktów) i metoda. Dlaczego: użytkownik uznał arkusz za przeładowany i poprosił o widok do podjęcia i uzasadnienia decyzji przed teamem i boardem. Dane czytane z plików `analysis/` i arkusza wymagań, nic nie wpisane ręcznie poza krótkimi nazwami i dwoma zastrzeżeniami (ServiceNow, próg cenowy HelpSpot).
+
 ## 2026-11-18
 
 1. `CLAUDE.md`: decyzja 20 – rekomendacja wykonana (Halo, Freshservice, Atlassian), metoda i miejsce zapisu; decyzja 17 zaktualizowana (wstrzymanie zakończone).
