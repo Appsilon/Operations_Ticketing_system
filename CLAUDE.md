@@ -67,9 +67,10 @@ Narzędzia wymienione w rozmowach (lista otwarta, można dodawać inne):
 14. Nie wykluczamy żadnego narzędzia (decyzja użytkownika 2026-11-18). Wszystkie sprawdzone narzędzia są w zestawieniu, także te z „Does not meet”.
 15. Krok 2 (decyzja użytkownika 2026-11-18): wszystkie 9 narzędzi oceniamy na wszystkie 59 wymagań (43 pozostałe → `analysis/full_screen/`). Wynik w nowym dokumencie. Overview ma zawierać budżet (koszt miesięczny, roczny, jednorazowy) oraz listy, które konkretnie Must i Nice to have są spełnione / częściowo / niespełnione / nieznane – nie tylko liczby.
 16. ServiceNow w kroku 2: na podstawie PDF-ów od użytkownika; brak dowodu = Unknown + pytanie do vendora (założenie, użytkownik nie dostarczył dokumentacji).
-17. Connectora Google Sheets nie będzie (decyzja użytkownika 2026-11-18). Rekomendacja 3 narzędzi wstrzymana („czekaj”).
+17. Connectora Google Sheets nie będzie (decyzja użytkownika 2026-11-18). Rekomendacja 3 narzędzi była wstrzymana („czekaj”) do 2026-11-19.
 18. Rozszerzony przegląd rynku (decyzja użytkownika 2026-11-18): pierwsza lista narzędzi powstała z briefu, arkusza i mojej wiedzy ogólnej, bez systematycznego przeglądu i bez spisanych kryteriów. Nowa metoda i kryteria: `analysis/04_market_scan.md` (długa lista → szybki filtr 4 pytań na oficjalnych stronach → pełna ocena 59 wymagań dla tych, które przejdą).
 19. Krok 3 rozszerzonego przeglądu (decyzja użytkownika 2026-11-18): pełna ocena 59 wymagań tylko dla 7 produktów z Q1 = Yes w filtrze: Zammad, OTRS, HelpSpot, Deskpro, Unthread, Suptask, NinjaOne Ticketing. Pozostałe 17 z „Pass” zostaje z wynikiem filtra (do ewentualnego rozszerzenia).
+20. Rekomendacja (2026-11-19, na prośbę użytkownika): Halo, Freshservice, Atlassian Service Collection – `analysis/05_recommendation.md`. Kolejność: brak „Does not meet” na K.O. → Musty Platform i IT → Musty Operations; wynik ten sam przy równej wadze Operations i przy wszystkich Mustach po równo. Nie dopisano jej do Google Sheet (brak connectora; użytkownik prosił, by nie tworzyć nowego dokumentu).
 
 ## Wyniki
 
